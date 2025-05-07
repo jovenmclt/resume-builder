@@ -1,10 +1,13 @@
 <template>
-    <h1 class="text-primary">Hello world</h1>
+    <ChildIndexVue />
 </template>
 
 <script>
+import ChildIndexVue from '../Components/ChildIndex/Child-Index.vue'
+
 export default {
-    name: 'Index'
+    name: 'Index',
+    components: {ChildIndexVue}
 }
 </script>
 

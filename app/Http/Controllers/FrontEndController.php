@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class FrontEndController extends Controller
 {
-    //
 
     public function Index(){
         return Inertia::render('Index/Index');
