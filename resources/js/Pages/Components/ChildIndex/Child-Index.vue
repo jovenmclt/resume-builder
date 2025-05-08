@@ -5,19 +5,35 @@
             <main class="col-12">
                 <section id="header">
                     <div class="row justify-content-center">
-                        <div class="col-md-6 ">
-                            <div class="text-start  mt-lg-4 ps-lg-4">
-                                <h1 class="fw-semibold display-5 display-md-6 ">Stand out with a professionally designed resume</h1>
-                                <p class="fw-light mt-4">By employing the best practices and innovative tech, Resume Builder boosts your chances of landing a better job – completely for free.</p>
+                        <div class="col-lg-6">
+                            <div class="text-start mt-xl-5 ps-xl-4">
+                                <h1 class="fw-semibold display-5">Impress with a professionally designed resume</h1>
+                                <p class="fw-light mt-4">Resume Builder increases your chances of landing a great job by using innovative tools and professional standards — 100% free.</p>
                                 <div class="mt-4">
                                     <button class="btn btn-primary py-lg-2">Build Resume</button>
-                                    <span class="fw-light text-secondary ms-2" style="font-size: 12px;">No registration required</span>
+                                    <span class="fw-light text-secondary ms-2 " style="font-size: 12px;">No registration required</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-lg-5">
                             <div class="text-end">
-                                <img class="d-md-block d-none w-100" src="./assets/header-img.png" style="position: relative; bottom: 40px;" alt="">
+                                <img class="d-lg-block d-none w-100" src="./assets/header-img.png" style="position: relative; bottom: 30px;" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="section1">
+                    <div class="row justify-content-center" style="background-color: #F2F2F2;">
+                        <div class="col-lg-6">
+                            <div class="text-center pt-5">
+                                <h4 class="fw-semibold text-dark">From our builder to your dream job at world renowned companies.</h4>
+                            </div>
+                            <div class="d-flex flex-lg-nowrap flex-wrap justify-content-center py-4">
+                                <img src="./assets/Frame.png" alt="">
+                                <img src="./assets/Frame6.png" alt="">
+                                <img src="./assets/Frame2.png" alt="">
+                                <img src="./assets/Frame4.png" alt="">
+                                <img src="./assets/Frame3.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -40,7 +56,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=League+Spartan:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 section{
-    padding: calc(40px + 1rem) 0;
+    padding: calc(35px + 1rem) 0;
     font-family: "Poppins", sans-serif;
 }
 </style>
