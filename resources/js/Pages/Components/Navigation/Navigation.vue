@@ -9,7 +9,7 @@
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item mx-2">
-                        <a class="nav-link fw-normal" href="#"><i class="bi bi-house-fill d-lg-none d-inline"></i> Home</a>
+                        <inertiaLink class="nav-link fw-normal" href="/"><i class="bi bi-house-fill d-lg-none d-inline"></i> Home</inertiaLink>
                     </li>
                     <li class="nav-item mx-2">
                         <a class="nav-link fw-normal" href="#"><i class="bi bi-list-stars d-lg-none d-inline"></i> Features</a>
@@ -18,7 +18,7 @@
                         <a class="nav-link fw-normal" href="#"><i class="bi bi-front d-lg-none d-inline"></i> Templates</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link fw-normal" href="#"><i class="bi bi-info-square-fill d-lg-none d-inline"></i> About</a>
+                        <inertiaLink class="nav-link fw-normal" href="/About"><i class="bi bi-info-square-fill d-lg-none d-inline"></i> About</inertiaLink>
                     </li>
                 </ul>
                 <ul class="navbar-nav d-lg-none d-block">
@@ -55,8 +55,10 @@
 </template>
 
 <script>
+import {Link as inertiaLink} from '@inertiajs/vue3'
 export default {
     name: 'Navigation',
+    components:{inertiaLink},
     data() {
         return {
             isDarkMode: localStorage.getItem('theme') === 'dark'

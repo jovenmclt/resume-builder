@@ -11,4 +11,8 @@ class FrontEndController extends Controller
     public function Index(){
         return Inertia::render('Index/Index');
     }
+
+    public function About(){
+        return Inertia::render('Index/AboutPage');
+    }
 }

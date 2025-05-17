@@ -6,7 +6,7 @@
                 <section id="header">
                     <div class="row justify-content-center">
                         <div class="col-lg-6">
-                            <div class="text-start mt-xl-5 ps-xl-4">
+                            <div class="text-start mt-xl-5">
                                 <h1 class="fw-semibold display-5">Impress with a professionally designed resume</h1>
                                 <p class="fw-light mt-4">Resume Builder increases your chances of landing a great job by using innovative tools and professional standards — 100% free.</p>
                                 <div class="mt-4">
