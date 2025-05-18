@@ -6,10 +6,10 @@
                 <section id="header">
                     <div class="row justify-content-center">
                         <div class="col-lg-6">
-                            <div class="text-start mt-xl-5">
+                            <div class="text-start mt-xl-4">
                                 <h1 class="fw-semibold display-5">Impress with a professionally designed resume</h1>
                                 <p class="fw-light mt-4">Resume Builder increases your chances of landing a great job by using innovative tools and professional standards — 100% free.</p>
-                                <div class="mt-4">
+                                <div class="mt-5">
                                     <button class="btn btn-primary py-lg-2">Build Resume</button>
                                     <span class="fw-light text-secondary ms-2 " style="font-size: 12px;">No registration required</span>
                                 </div>
@@ -17,7 +17,7 @@
                         </div>
                         <div class="col-lg-5">
                             <div class="text-end">
-                                <img class="d-lg-block d-none w-100" src="./assets/header-img.png" style="position: relative; bottom: 30px;" alt="">
+                                <img class="d-lg-block d-none w-75" src="./assets/header-img3.png" style="position: relative; bottom: 30px; left: 50px;" alt="">
                             </div>
                         </div>
                     </div>
@@ -28,12 +28,12 @@
                             <div class="text-center pt-5">
                                 <h4 class="fw-semibold text-dark">From our builder to your dream job at world renowned companies.</h4>
                             </div>
-                            <div class="d-flex flex-lg-nowrap flex-wrap justify-content-center py-4">
-                                <img src="./assets/Frame.png" alt="">
-                                <img src="./assets/Frame6.png" alt="">
-                                <img src="./assets/Frame2.png" alt="">
-                                <img src="./assets/Frame4.png" alt="">
-                                <img src="./assets/Frame3.png" alt="">
+                            <div class="d-flex flex-lg-nowrap flex-wrap justify-content-center pt-4 pb-5">
+                                <img class="w-25" src="./assets/Frame.png" alt="">
+                                <img class="w-25" src="./assets/Frame6.png" alt="">
+                                <img class="w-25" src="./assets/Frame2.png" alt="">
+                                <img class="w-25" src="./assets/Frame4.png" alt="">
+                                <img class="w-25" src="./assets/Frame3.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -139,6 +139,7 @@ export default {
 section{
     padding: calc(35px + 1rem) 0;
     font-family: "Poppins", sans-serif;
+    overflow-wrap: break-word;
 }
 
 .sec4style{

@@ -1,7 +1,7 @@
 <template>
     <section id="footer">
         <div class="row justify-content-center">
-            <div class="col-md-11">
+            <div class="col-lg-11">
                 <div class="d-flex gap-3">
                     <h4 class="fw-light">Follow us</h4>
                     <p class="mb-0"><i class="bi bi-facebook fs-5"></i></p>

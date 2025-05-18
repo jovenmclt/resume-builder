@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar col-lg-11 navbar-expand-lg py-3">
+    <nav class="navbar col-lg-11 col-12 navbar-expand-lg py-3">
         <div class="container-fluid">
             <a class="navbar-brand fw-semibold d-lg-block d-none" href="#">Resume Builder</a>
             <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +12,7 @@
                         <inertiaLink class="nav-link fw-normal" href="/"><i class="bi bi-house-fill d-lg-none d-inline"></i> Home</inertiaLink>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link fw-normal" href="#"><i class="bi bi-list-stars d-lg-none d-inline"></i> Features</a>
+                        <inertiaLink class="nav-link fw-normal" href="/Features"><i class="bi bi-list-stars d-lg-none d-inline"></i> Features</inertiaLink>
                     </li>
                     <li class="nav-item mx-2">
                         <a class="nav-link fw-normal" href="#"><i class="bi bi-front d-lg-none d-inline"></i> Templates</a>

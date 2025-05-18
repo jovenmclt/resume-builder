@@ -15,4 +15,8 @@ class FrontEndController extends Controller
     public function About(){
         return Inertia::render('Index/AboutPage');
     }
+
+    public function Features(){
+        return Inertia::render('Index/FeaturesPage');
+    }
 }

@@ -4,17 +4,17 @@
             <Navigationvue />
             <main class="col-12">
                 <section id="section1">
-                    <div class="row justify-content-center px-xl-5 px-3 ">
-                        <div class="d-flex flex-md-nowrap flex-wrap gap-2 justify-content-between mt-3 ">
-                            <div class="text-start">
+                    <div class="row justify-content-center  ">
+                        <div class="d-flex flex-md-nowrap flex-wrap gap-2 justify-content-between mt-3 px-lg-5 px-3">
+                            <div class="text-start px-xl-4">
                                 <h1 class="fw-semibold">About Resume Builder</h1>
                                 <p class="fw-light ">Lorem ipsum dolor sit neque quaerat perferendis</p>
                             </div>
-                            <div class="text-end">
+                            <div class="text-end px-xl-4">
                                 <button class="btn btn-primary rounded-0">Learn more</button>
                             </div>
                         </div>
-                        <div class="col-lg-8">
+                        <div class="col-lg-7">
                             <div class="d-flex flex-md-nowrap flex-wrap gap-3 mt-5">
                                 <div class="text-start py-3 px-3 rounded-4" style="background-color: #F2F2F2;">
                                     <h1 class="fw-semibold text-primary">1.</h1>
@@ -68,5 +68,6 @@ export default {
 section{
     padding: calc(35px + 1rem) 0;
     font-family: "Poppins", sans-serif;
+    overflow-wrap: break-word;
 }
 </style>
