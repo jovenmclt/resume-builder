@@ -6,7 +6,7 @@
                 <section id="header">
                     <div class="row justify-content-center">
                         <div class="col-lg-6">
-                            <div class="text-start mt-xl-4">
+                            <div class="text-start mt-xl-5">
                                 <h1 class="fw-semibold display-5">Impress with a professionally designed resume</h1>
                                 <p class="fw-light mt-4">Resume Builder increases your chances of landing a great job by using innovative tools and professional standards — 100% free.</p>
                                 <div class="mt-5">
@@ -17,14 +17,15 @@
                         </div>
                         <div class="col-lg-5">
                             <div class="text-end">
-                                <img class="d-lg-block d-none w-75" src="./assets/header-img3.png" style="position: relative; bottom: 30px; left: 50px;" alt="">
+                                <img v-if="isDarkMode" class="d-lg-block d-none w-100" src="./assets/hero-img2.png" alt="">
+                                <img v-else class="d-lg-block d-none w-100" src="./assets/hero-img.png" alt="">
                             </div>
                         </div>
                     </div>
                 </section>
                 <section id="section1">
                     <div class="row justify-content-center" style="background-color: #F2F2F2;">
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 py-3">
                             <div class="text-center pt-5">
                                 <h4 class="fw-semibold text-dark">From our builder to your dream job at world renowned companies.</h4>
                             </div>
@@ -126,7 +127,12 @@ import NavigationVue from '../Navigation/Navigation.vue'
 import Footervue from '../Footer/Footer.vue';
 export default {
     name: 'Child-Index',
-    components: {NavigationVue, Footervue}
+    components: {NavigationVue, Footervue},
+    data(){
+        return{
+            isDarkMode: localStorage.getItem('theme') === 'dark',
+        }
+    },
 }
 </script>
 

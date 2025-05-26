@@ -15,7 +15,7 @@
                         <inertiaLink class="nav-link fw-normal" href="/Features"><i class="bi bi-list-stars d-lg-none d-inline"></i> Features</inertiaLink>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link fw-normal" href="#"><i class="bi bi-front d-lg-none d-inline"></i> Templates</a>
+                        <inertiaLink class="nav-link fw-normal" href="/Templates"><i class="bi bi-front d-lg-none d-inline"></i> Templates</inertiaLink>
                     </li>
                     <li class="nav-item mx-2">
                         <inertiaLink class="nav-link fw-normal" href="/About"><i class="bi bi-info-square-fill d-lg-none d-inline"></i> About</inertiaLink>
@@ -70,6 +70,7 @@ export default {
             const theme = this.isDarkMode ? 'dark' : 'light';
             document.documentElement.setAttribute('data-bs-theme', theme);
             localStorage.setItem('theme', theme);
+            location.reload(); 
         }
     },
     mounted() {
