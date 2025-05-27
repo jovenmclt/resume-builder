@@ -17,8 +17,8 @@
                         </div>
                         <div class="col-lg-5">
                             <div class="text-end">
-                                <img v-if="isDarkMode" class="d-lg-block d-none w-100" src="./assets/hero-img2.png" alt="">
-                                <img v-else class="d-lg-block d-none w-100" src="./assets/hero-img.png" alt="">
+                                <img v-if="isDarkMode" class="d-lg-block d-none w-100" src="./assets/Hero-img2.png" alt="">
+                                <img v-else class="d-lg-block d-none w-100" src="./assets/Hero-img.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -29,12 +29,12 @@
                             <div class="text-center pt-5">
                                 <h4 class="fw-semibold text-dark">From our builder to your dream job at world renowned companies.</h4>
                             </div>
-                            <div class="d-flex flex-lg-nowrap flex-wrap justify-content-center pt-4 pb-5">
-                                <img class="w-25" src="./assets/Frame.png" alt="">
-                                <img class="w-25" src="./assets/Frame6.png" alt="">
-                                <img class="w-25" src="./assets/Frame2.png" alt="">
-                                <img class="w-25" src="./assets/Frame4.png" alt="">
-                                <img class="w-25" src="./assets/Frame3.png" alt="">
+                            <div class="d-flex flex-lg-nowrap flex-wrap justify-content-lg-between justify-content-center pt-4 pb-5">
+                                <img class="mx-2" width="50" src="./assets/Logo3.png" alt="">
+                                <img class="mx-2" width="50" src="./assets/Logo1.png" alt="">
+                                <img class="mx-2" width="50" src="./assets/Logo4.png" alt="">
+                                <img class="mx-2" width="50" src="./assets/Logo2.png" alt="">
+                                <img class="mx-2" width="50" src="./assets/Logo5.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -47,13 +47,13 @@
                         <div class="col-md-10 mt-4">
                             <div class="d-flex flex-md-nowrap flex-wrap justify-content-center gap-4">
                                 <div class="text-center rounded-4" >
-                                    <img src="./assets/DashTemplate2.png" class="w-100 px-4 py-4 rounded-3" alt="" style="background-color: #F2F2F2;">
+                                    <img src="./assets/Template1.png" class="w-100 px-4 py-4 rounded-3" alt="" style="background-color: #F2F2F2;">
                                 </div>
                                 <div class="text-center rounded-4" >
-                                    <img src="./assets/DashTemplate1.png" class="w-100 px-4 py-4 rounded-3" alt="" style="background-color: #F2F2F2;">
+                                    <img src="./assets/Template2.png" class="w-100 px-4 py-4 rounded-3" alt="" style="background-color: #F2F2F2;">
                                 </div>
                                 <div class="text-center rounded-4" >
-                                    <img src="./assets/DashTemplate3.png" class="w-100 px-4 py-4 rounded-3" alt="" style="background-color: #F2F2F2;">
+                                    <img src="./assets/Template3.png" class="w-100 px-4 py-4 rounded-3" alt="" style="background-color: #F2F2F2;">
                                 </div>
                             </div>
                         </div>
