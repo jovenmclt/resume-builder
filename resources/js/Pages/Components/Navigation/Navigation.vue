@@ -66,11 +66,12 @@ export default {
     },
     methods: {
         btnToggleTheme() {
+            location.reload();
             this.isDarkMode = !this.isDarkMode;
             const theme = this.isDarkMode ? 'dark' : 'light';
             document.documentElement.setAttribute('data-bs-theme', theme);
             localStorage.setItem('theme', theme);
-            location.reload(); 
+
         }
     },
     mounted() {
