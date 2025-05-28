@@ -8,34 +8,44 @@
                         <div class="text-center">
                             <h1 class="fw-semibold">Select your Template</h1>
                         </div>
-                        <div class="col-md-4 mt-5">
-                            <div class="text-center py-4 px-4 rounded-4" style="background-color: #F2F2F2;">
-                                <img src="./Assets/template1.png" class="w-100" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-4 mt-5">
-                            <div class="text-center py-4 px-4 rounded-4" style="background-color: #F2F2F2;">
-                                <img src="./Assets/template1.png" class="w-100" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-4 mt-5">
-                            <div class="text-center py-4 px-4 rounded-4" style="background-color: #F2F2F2;">
-                                <img src="./Assets/template1.png" class="w-100" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-4 mt-5">
-                            <div class="text-center py-4 px-4 rounded-4" style="background-color: #F2F2F2;">
-                                <img src="./Assets/template1.png" class="w-100" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-4 mt-5">
-                            <div class="text-center py-4 px-4 rounded-4" style="background-color: #F2F2F2;">
-                                <img src="./Assets/template1.png" class="w-100" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-4 mt-5">
-                            <div class="text-center py-4 px-4 rounded-4" style="background-color: #F2F2F2;">
-                                <img src="./Assets/template1.png" class="w-100" alt="">
+                        <div class="col-12 mt-5">
+                            <div id="carouselExample" class="carousel slide">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="row justify-content-center">
+                                            <div class="col-3">
+                                                <img src="./Assets/template1.png" class="d-block w-100 border border-dark rounded" alt="...">
+                                            </div>
+                                            <div class="col-3">
+                                                <img src="./Assets/template1.png" class="d-block w-100 border border-dark rounded" alt="...">
+                                            </div>
+                                            <div class="col-3">
+                                                <img src="./Assets/template1.png" class="d-block w-100 border border-dark rounded" alt="...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="row justify-content-center">
+                                            <div class="col-3">
+                                                <img src="./Assets/template1.png" class="d-block w-100 border border-dark rounded" alt="...">
+                                            </div>
+                                            <div class="col-3">
+                                                <img src="./Assets/template1.png" class="d-block w-100 border border-dark rounded" alt="...">
+                                            </div>
+                                            <div class="col-3">
+                                                <img src="./Assets/template1.png" class="d-block w-100 border border-dark rounded" alt="...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                                    <img  class="w-25" src="https://img.icons8.com/flat-round/64/back--v1.png" alt="back--v1"/>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                    <img class="w-25" src="https://img.icons8.com/flat-round/64/circled-chevron-right.png" alt="circled-chevron-right"/>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -63,5 +73,8 @@ section {
     padding: calc(35px + 1rem) 0;
     font-family: "Poppins", sans-serif;
     overflow-wrap: break-word;
+}
+.carousel-item img {
+        object-fit: cover;
 }
 </style>
