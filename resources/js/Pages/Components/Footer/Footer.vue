@@ -1,12 +1,15 @@
 <template>
     <section id="footer">
         <div class="row justify-content-center">
-            <div class="col-lg-11">
-                <div class="d-flex gap-3">
-                    <h4 class="fw-light">Follow us</h4>
-                    <p class="mb-0"><i class="bi bi-facebook fs-5"></i></p>
-                    <p class="mb-0"><i class="bi bi-linkedin fs-5"></i></p>
-                    <p class="mb-0"><i class="bi bi-twitter fs-5"></i></p>
+            <div class="col-11">
+                <div class="d-flex flex-wrap gap-3 justify-content-between">
+                    <div class="d-flex gap-3">
+                        <h4 class="fw-light">Follow us</h4>
+                        <p class="mb-0"><i class="bi bi-facebook fs-5"></i></p>
+                        <p class="mb-0"><i class="bi bi-linkedin fs-5"></i></p>
+                        <p class="mb-0"><i class="bi bi-twitter fs-5"></i></p>
+                    </div>
+                    <h5 class="fw-light pt-md-2" style="font-size: 13px;">© Copyright 2025,Resume Builder</h5>
                 </div>
                 <hr>
                 <div class="d-flex flex-wrap gap-3 justify-content-between">
@@ -16,7 +19,7 @@
                         <a href="#" class="ms-2 text-decoration-none " style="font-size: 13px;">Terms</a>
                     </div>
                     <div class="text-start ">
-                        <h5 class="fw-light " style="font-size: 13px;">© Copyright 2025,Resume Builder</h5>
+                        <h5 class="fw-normal " style="font-size: 13px;">Developed by: Joven Miclat</h5>
                     </div>
                 </div>
             </div>

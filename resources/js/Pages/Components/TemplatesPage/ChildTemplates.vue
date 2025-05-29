@@ -31,11 +31,11 @@
                                     </div>
                                 </div>
                                 <button class="btn carousel-control-prev" data-bs-target="#CarouselTemplate" data-bs-slide="prev">
-                                    <img  class="w-25" src="https://img.icons8.com/flat-round/64/circled-left.png" alt="circled-left"/>
+                                    <img  class="w-25" src="https://img.icons8.com/fluency/48/back.png" alt="back"/>
                                     <span class="visually-hidden">Previous</span>
                                 </button>
                                 <button class="btn carousel-control-next" data-bs-target="#CarouselTemplate" data-bs-slide="next">
-                                    <img class="w-25" src="https://img.icons8.com/flat-round/64/circled-right.png" alt="circled-right"/>
+                                    <img class="w-25" src="https://img.icons8.com/fluency/48/forward--v2.png" alt="forward--v2"/>
                                     <span class="visually-hidden">Next</span>
                                 </button>
                             </div>
@@ -49,11 +49,11 @@
                                     </div>
                                 </div>
                                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                                    <img  class="w-25" src="https://img.icons8.com/flat-round/64/circled-left.png" alt="circled-left"/>
+                                    <img  class="w-25" src="https://img.icons8.com/fluency/48/back.png" alt="back"/>
                                     <span class="visually-hidden">Previous</span>
                                 </button>
                                 <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                                    <img class="w-25" src="https://img.icons8.com/flat-round/64/circled-right.png" alt="circled-right"/>
+                                   <img class="w-25" src="https://img.icons8.com/fluency/48/forward--v2.png" alt="forward--v2"/>
                                     <span class="visually-hidden">Next</span>
                                 </button>
                             </div>
