@@ -7,7 +7,7 @@
                     <div class="row justify-content-center  ">
                         <div class="d-flex flex-md-nowrap flex-wrap gap-2 justify-content-between mt-3 px-lg-5 px-3">
                             <div class="text-start px-xl-4">
-                                <h1 class="fw-semibold">About Resume Builder</h1>
+                                <h2 class="fw-semibold">About Resume Builder</h2>
                                 <p class="fw-light ">Lorem ipsum dolor sit neque quaerat perferendis</p>
                             </div>
                             <div class="text-end px-xl-4">
@@ -41,8 +41,8 @@
                             </div>
                         </div>
                         <div class="col-lg-4">
-                            <div class="text-start">
-                                <img src="./Assets/Aboutimg.png" class="w-100 d-lg-block d-none mt-5 ms-4" alt="">
+                            <div class="text-center ms-xl-5">
+                                <img src="./Assets/Hero-img.png" width="350" class="py-3 px-3 border d-lg-block d-none" alt="">
                             </div>
                         </div>
                     </div>

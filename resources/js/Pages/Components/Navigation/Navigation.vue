@@ -12,13 +12,13 @@
                         <inertiaLink class="nav-link fw-normal" href="/"><i class="bi bi-house-fill d-lg-none d-inline"></i> Home</inertiaLink>
                     </li>
                     <li class="nav-item mx-2">
-                        <inertiaLink class="nav-link fw-normal" href="/Features"><i class="bi bi-list-stars d-lg-none d-inline"></i> Features</inertiaLink>
+                        <inertiaLink class="nav-link fw-normal" href="/About"><i class="bi bi-info-square-fill d-lg-none d-inline"></i> About</inertiaLink>
                     </li>
                     <li class="nav-item mx-2">
                         <inertiaLink class="nav-link fw-normal" href="/Templates"><i class="bi bi-front d-lg-none d-inline"></i> Templates</inertiaLink>
                     </li>
                     <li class="nav-item mx-2">
-                        <inertiaLink class="nav-link fw-normal" href="/About"><i class="bi bi-info-square-fill d-lg-none d-inline"></i> About</inertiaLink>
+                        <inertiaLink class="nav-link fw-normal" href="/Features"><i class="bi bi-list-stars d-lg-none d-inline"></i> Features</inertiaLink>
                     </li>
                 </ul>
                 <ul class="navbar-nav d-lg-none d-block">

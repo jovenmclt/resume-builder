@@ -7,14 +7,15 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-6">
                             <div class="text-start rounded-4 py-4 px-4" style="background-color: #F2F2F2;">
-                                <h1 class="fw-semibold text-dark">Resume Builder Features</h1>
+                                <h2 class="fw-semibold text-dark">Resume Builder Features</h2>
                                 <p class="fw-light text-dark mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum architecto, ex quo saepe eum praesentium vel provident? Laudantium possimus dolore animi dolores, ipsam et vitae quas, quae architecto quis exercitationem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus deserunt distinctio repudiandae totam est quasi corporis maiores reprehenderit ratione praesentium, cumque earum doloribus tempora recusandae debitis, tenetur delectus animi dolorem.repudiandae totam est quasi corporis maiores reprehenderit ratione praesentium, cumque earum doloribus tempora recusandae debitis, tenetur delectus animi dolorem.</p>
                                 <button class="btn btn-primary mt-4">Build Resume</button>
                             </div>
                         </div>
                         <div class="col-lg-5 mt-2">
-                            <div class="text-center rounded-4 py-4 px-4 d-lg-block d-none border border-secondary">
-                                <img src="./Assets/featuresimg.png" class="w-100 ms-4" alt="">
+                            <div class="text-start rounded-4 py-4 px-4 border border-secondary">
+                                <h4 class="fw-semibold ">Resume Builder Features</h4>
+                                <p class="fw-light mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum architecto, ex quo saepe eum praesentium vel provident? Laudantium possimus dolore animi dolores, ipsam et vitae quas, quae architecto quis exercitationem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus deserunt distinctio repudiandae totam est quasi corporis maiores reprehenderit ratione praesentium, cumque earum doloribus tempora recusandae debitis, tenetur delectus animi dolorem.repudiandae totam est quasi corporis maiores reprehenderit ratione praesentium, cumque earum doloribus tempora recusandae debitis, tenetur delectus animi dolorem.</p>
                             </div>
                         </div>
                     </div>
