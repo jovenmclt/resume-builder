@@ -8,35 +8,35 @@
                         <div class="d-flex flex-md-nowrap flex-wrap gap-2 justify-content-between mt-3 px-lg-5 px-3">
                             <div class="text-start px-xl-4">
                                 <h2 class="fw-semibold">About Resume Builder</h2>
-                                <p class="fw-light ">Lorem ipsum dolor sit neque quaerat perferendis</p>
+                                <p class="fw-light ">Build a clean, job ready resume in minutes no hassle, just download and go.</p>
                             </div>
                             <div class="text-end px-xl-4">
-                                <button class="btn btn-primary rounded-0">Learn more</button>
+                                <button class="btn btn-primary">Learn more</button>
                             </div>
                         </div>
                         <div class="col-lg-7">
                             <div class="d-flex flex-md-nowrap flex-wrap gap-3 mt-5">
                                 <div class="text-start py-3 px-3 rounded-4" style="background-color: #F2F2F2;">
                                     <h1 class="fw-semibold text-primary">1.</h1>
-                                    <h5 class="fw-semibold text-dark">Who we are</h5>
-                                    <p class="fw-light text-dark" style="font-size: 14px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque quasi id sapiente odit ipsam laboriosam non eos, harum labore?</p>
+                                    <h5 class="fw-semibold text-dark">What We Do</h5>
+                                    <p class="fw-light text-dark" style="font-size: 14px;">We help you create clean, professional resumes that you can download instantly in PDF format—no design skills needed.</p>
                                 </div>
                                 <div class="text-start py-3 px-3">
                                     <h1 class="fw-semibold text-primary">2.</h1>
-                                    <h5 class="fw-semibold">Who we are</h5>
-                                    <p class="fw-light" style="font-size: 14px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque quasi id sapiente odit ipsam laboriosam non eos, harum labore?</p>
+                                    <h5 class="fw-semibold">Who We Serve</h5>
+                                    <p class="fw-light" style="font-size: 14px;">Designed for fresh graduates, professionals, and job seekers looking for a fast and reliable resume-building solution.</p>
                                 </div>
                             </div>
                             <div class="d-flex flex-md-nowrap flex-wrap gap-3 mt-3">
                                 <div class="text-start py-3 px-3">
                                     <h1 class="fw-semibold text-primary">3.</h1>
-                                    <h5 class="fw-semibold">Who we are</h5>
-                                    <p class="fw-light" style="font-size: 14px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque quasi id sapiente odit ipsam laboriosam non eos, harum labore?</p>
+                                    <h5 class="fw-semibold">How It Works</h5>
+                                    <p class="fw-light" style="font-size: 14px;">Select a template, input your information, and export a professionally formatted resume in PDF format—quick and hassle-free.</p>
                                 </div>
                                 <div class="text-start py-3 px-3 rounded-4" style="background-color: #F2F2F2;">
                                     <h1 class="fw-semibold text-primary">4.</h1>
-                                    <h5 class="fw-semibold text-dark">Who we are</h5>
-                                    <p class="fw-light text-dark" style="font-size: 14px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque quasi id sapiente odit ipsam laboriosam non eos, harum labore?</p>
+                                    <h5 class="fw-semibold text-dark">Why Us</h5>
+                                    <p class="fw-light text-dark" style="font-size: 14px;">We combine simplicity with modern design, ensuring every user can build a high-quality resume with minimal effort.</p>
                                 </div>
                             </div>
                         </div>
