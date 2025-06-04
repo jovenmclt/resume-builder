@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontEndController;
 
 Route::get('/', [FrontEndController::class, 'Index']);
-Route::get('/About', [FrontEndController::class, 'About']);
-Route::get('/Features', [FrontEndController::class, 'Features']);
-Route::get('/Templates', [FrontEndController::class, 'Templates']);
+Route::get('/about', [FrontEndController::class, 'About']);
+Route::get('/features', [FrontEndController::class, 'Features']);
+Route::get('/templates', [FrontEndController::class, 'Templates']);
+
+//Templates
+Route::get('/template1', [FrontEndController::class, 'Template_1']);

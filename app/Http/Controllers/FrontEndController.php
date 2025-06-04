@@ -23,4 +23,8 @@ class FrontEndController extends Controller
     public function Templates(){
         return Inertia::render('Index/TemplatesPage');
     }
+
+    public function Template_1(){
+        return Inertia::render('Index/Template1');
+    }
 }

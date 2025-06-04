@@ -14,18 +14,18 @@
                                     <div class="carousel-item active ">
                                         <div class="row justify-content-center">
                                             <div v-for="(getTemp, index) in Templates_Container1" :key="index" class="col-3">
-                                                <a href="#">
+                                                <button @click="TempRoute(getTemp.id)" class="btn shadow-none btn-outline-none">
                                                     <img :src="getTemp.srcs" class="d-block w-100 border border-dark rounded" alt="...">
-                                                </a>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="carousel-item ">
                                         <div class="row justify-content-center">
                                             <div v-for="(getTemp, index) in Templates_Container2" :key="index" class="col-3">
-                                                <a href="#">
+                                                <button @click="TempRoute(getTemp.id)" class="btn shadow-none btn-outline-none">
                                                     <img :src="getTemp.srcs" class="d-block w-100 border border-dark rounded" alt="...">
-                                                </a>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -43,9 +43,9 @@
                             <div id="carouselExample" class="carousel slide d-md-none d-block" data-bs-ride="carousel">
                                 <div class="carousel-inner">
                                     <div v-for="(getTemp, index) in AllTemplates" :key="index" :class="['carousel-item', { active: index === 0 }]" >
-                                        <a href="#">
+                                        <button @click="TempRoute(getTemp.id)" class="btn shadow-none">
                                             <img :src="getTemp.srcs" class="d-block w-75 mx-auto border border-dark rounded"  alt="Slide image" />
-                                        </a>
+                                        </button>
                                     </div>
                                 </div>
                                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -69,6 +69,8 @@
 <script>
 import FooterVue from '../Footer/Footer.vue'
 import NavigationVue from '../Navigation/Navigation.vue'
+import {router} from '@inertiajs/vue3'
+
 
 import temp1 from './Assets/Template1.png'
 import temp2 from './Assets/Template2.png'
@@ -82,25 +84,36 @@ export default {
     data(){
         return{
             AllTemplates: [
-                {srcs: temp1, ref: ''},
-                {srcs: temp2, ref: ''},
-                {srcs: temp3, ref: ''},
-                {srcs: temp4, ref: ''},
-                {srcs: temp5, ref: ''},
-                {srcs: temp6, ref: ''},
+                {srcs: temp1, id: '1'},
+                {srcs: temp2, id: '2'},
+                {srcs: temp3, id: '3'},
+                {srcs: temp4, id: '4'},
+                {srcs: temp5, id: '5'},
+                {srcs: temp6, id: '6'},
             ],
             Templates_Container1: [
-                {srcs: temp1, ref: ''},
-                {srcs: temp2, ref: ''},
-                {srcs: temp3, ref: ''},
+                {srcs: temp1, id: '1'},
+                {srcs: temp2, id: '2'},
+                {srcs: temp3, id: '3'},
             ],
             Templates_Container2: [
-                {srcs: temp4, ref: ''},
-                {srcs: temp5, ref: ''},
-                {srcs: temp6, ref: ''},
+                {srcs: temp4, id: '4'},
+                {srcs: temp5, id: '5'},
+                {srcs: temp6, id: '6'},
             ]
         }
     },
+    methods:{
+        TempRoute(id){
+
+            switch(id){
+                case '1' :
+                    return router.visit('/template1');
+
+            }
+
+        }
+    }
 }
 </script>
 
@@ -113,6 +126,12 @@ section {
     overflow-wrap: break-word;
 }
 .carousel-item img {
-        object-fit: cover;
+    object-fit: cover;
+}
+
+.carousel-item img:hover{
+    box-shadow: 1px 440px 0px 7px #5f94e4;
+    border: 1px solid #0461ee !important;
+    transition: all 1s ease;
 }
 </style>
