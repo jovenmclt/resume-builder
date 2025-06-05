@@ -1,7 +1,7 @@
 <template>
     <div class="container-xxl">
         <div class="row justify-content-center">
-            <NavigationVue />
+            <NavigationVue  @theme-changed="ChangeTheme"/>
             <main class="col-12">
                 <section id="header">
                     <div class="row justify-content-center">
@@ -131,6 +131,11 @@ export default {
     data(){
         return{
             isDarkMode: localStorage.getItem('theme') === 'dark',
+        }
+    },
+    methods:{
+        ChangeTheme(value){
+            this.isDarkMode = value;
         }
     },
 }

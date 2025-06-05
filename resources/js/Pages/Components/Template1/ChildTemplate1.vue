@@ -3,9 +3,9 @@
         <div class="row justify-content-center">
             <main class="col-12">
                 <section id="section1" class="px-md-3 px-2">
-                    <div class="row py-md-3 py-2 px-md-3 px-2 border rounded justify-content-center ">
-                        <div class="col-lg-6">
-                            <div class="text-start">
+                    <div class="row py-md-3 py- px-md-3 px-2 border rounded justify-content-center ">
+                        <div class="col-lg-6 py-4 px-3">
+                            <div class="text-start ">
                                 <ul class="nav nav-tabs">
                                     <li class="nav-item">
                                         <a class="nav-link active" data-bs-toggle="tab" href="#PersonalInfo">Personal </a>
@@ -28,21 +28,24 @@
                                         <br><br>
                                         <div class="text-start">
                                             <h5 class="fw-semibold">Personal Information</h5>
-                                            <form action="" class="py-3">
+                                            <form v-for="(InputInfo, index) in PersonalArray" :key="index" class="py-3">
                                                 <label for="Fullname" class="form-label">Full Name</label>
-                                                <input id="Fullname" type="text" class="form-control shadow-none">
+                                                <input v-model="InputInfo.Fullname" id="Fullname" type="text" class="form-control shadow-none">
                                                 <br>
                                                 <label for="Email" class="form-label">Email Address</label>
-                                                <input id="Email" type="text" class="form-control shadow-none">
+                                                <input v-model="InputInfo.Email" id="Email" type="text" class="form-control shadow-none">
+                                                <br>
+                                                <label for="Career" class="form-label">Career Objective</label>
+                                                <input v-model="InputInfo.Career" id="Career" type="text" class="form-control shadow-none">
                                                 <br>
                                                 <label for="Phone" class="form-label">Phone Number</label>
-                                                <input id="Phone" type="text" class="form-control shadow-none">
+                                                <input v-model="InputInfo.Phone" id="Phone" type="text" class="form-control shadow-none">
                                                 <br>
                                                 <label for="Location" class="form-label">Location</label>
-                                                <input id="Location" type="text" class="form-control shadow-none">
+                                                <input v-model="InputInfo.Location" id="Location" type="text" class="form-control shadow-none">
                                                 <br>
-                                                <label for="About" class="form-label">About</label>
-                                                <textarea id="About" class="form-control shadow-none" rows="4"></textarea>
+                                                <label for="Summary" class="form-label">Professional Summary</label>
+                                                <textarea v-model="InputInfo.Summary" id="Summary" class="form-control shadow-none" rows="5"></textarea>
                                             </form>
                                         </div>
                                     </div>
@@ -50,86 +53,163 @@
                                         <br><br>
                                         <div class="text-start">
                                             <h5 class="fw-semibold">Education</h5>
-                                            <form v-for="(getedu , index) in EducationArray" :key="index" class="py-3">
+                                            <form v-for="(InputEdu , index) in EducationArray" :key="index" class="py-3">
+                                                <i @click="DeleteEducation(index)"  v-if="index > 0" class="bi bi-x-circle-fill text-danger me-1 mt-1" style="cursor: pointer;"></i>
                                                 <label for="University" class="form-label">School/University</label>
-                                                <input id="University" type="text" class="form-control shadow-none">
+                                                <input v-model="InputEdu.University" id="University" type="text" class="form-control shadow-none">
                                                 <br>
                                                 <label for="Prgram" class="form-label">Degree Prgram</label>
-                                                <input id="Prgram" type="text" class="form-control shadow-none">
+                                                <input v-model="InputEdu.Program" id="Prgram" type="text" class="form-control shadow-none">
                                                 <br>
                                                 <div class="d-flex gap-3">
                                                     <div class="text-start w-50">
                                                         <label for="StartDate" class="form-label">Start Date</label>
-                                                        <input id="StartDate" type="date" class="form-control shadow-none">
+                                                        <input v-model="InputEdu.StartDate" id="StartDate" type="date" class="form-control shadow-none">
                                                     </div>
                                                     <div class="text-start w-50">
                                                         <label for="EndDate" class="form-label">End Date</label>
-                                                        <input id="EndDate" type="date" class="form-control shadow-none">
+                                                        <input v-model="InputEdu.EndDate" id="EndDate" type="date" class="form-control shadow-none">
                                                     </div>
                                                 </div>
                                             </form>
                                             <br>
-                                            <button @click="AddEducation" class="btn btn-dark"><i class="bi bi-plus-lg"></i> Add Education</button>
+                                            <button @click="AddEducation" class="btn btn-secondary"><i class="bi bi-plus-lg"></i> Add Education</button>
                                         </div>
                                     </div>
                                     <div class="tab-pane show fade" id="Skills" >
                                         <br><br>
                                         <div class="text-start">
                                             <h5 class="fw-semibold">Skills</h5>
-                                            <form v-for="(getskill , index) in SkillArray" :key="index" class="py-3">
+                                            <form v-for="(InputSkill , index) in SkillArray" :key="index" class="py-3">
+                                                <i @click="DeleteSkill(index)" v-if="index > 0" class="bi bi-x-circle-fill text-danger me-1 mt-1" style="cursor: pointer;"></i>
                                                 <label for="skill" class="form-label">Technical Skills </label>
-                                                <input id="skill" type="text" class="form-control shadow-none">
+                                                <input v-model="InputSkill.Skill" id="skill" type="text" class="form-control shadow-none">
                                             </form>
                                             <br>
-                                            <button @click="AddSkill" class="btn btn-dark"><i class="bi bi-plus-lg"></i> Add Skill</button>
+                                            <button @click="AddSkill" class="btn btn-secondary"><i class="bi bi-plus-lg"></i> Add Skill</button>
                                         </div>
                                     </div>
                                     <div class="tab-pane show fade" id="Experience" >
                                         <br><br>
                                         <div class="text-start">
                                             <h5 class="fw-semibold">Experience</h5>
-                                            <form v-for="(getexp , index) in ExperienceArray" :key="index" class="py-3">
+                                            <form v-for="(InputExp , index) in ExperienceArray" :key="index" class="py-3">
+                                                <i @click="DeleteExperience(index)" v-if="index > 0" class="bi bi-x-circle-fill text-danger me-1 mt-1" style="cursor: pointer;"></i>
                                                 <label for="Company" class="form-label">Company</label>
-                                                <input id="Company" type="text" class="form-control shadow-none">
+                                                <input v-model="InputExp.Company" id="Company" type="text" class="form-control shadow-none">
                                                 <br>
                                                 <label for="Position" class="form-label">Position</label>
-                                                <input id="Position" type="text" class="form-control shadow-none">
+                                                <input v-model="InputExp.Position" id="Position" type="text" class="form-control shadow-none">
                                                 <br>
                                                 <div class="d-flex gap-3">
                                                     <div class="text-start w-50">
                                                         <label for="StartDate" class="form-label">Start Date</label>
-                                                        <input id="StartDate" type="date" class="form-control shadow-none">
+                                                        <input v-model="InputExp.StartDate" id="StartDate" type="date" class="form-control shadow-none">
                                                     </div>
                                                     <div class="text-start w-50">
                                                         <label for="EndDate" class="form-label">End Date</label>
-                                                        <input id="EndDate" type="date" class="form-control shadow-none">
+                                                        <input v-model="InputExp.EndDate" id="EndDate" type="date" class="form-control shadow-none">
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <label for="Description" class="form-label">Job Description</label>
-                                                <textarea id="Description" class="form-control shadow-none" rows="4"></textarea>
+                                                <textarea v-model="InputExp.Description" id="Description" class="form-control shadow-none" rows="4"></textarea>
                                             </form>
                                             <br>
-                                            <button @click="AddExperience" class="btn btn-dark"><i class="bi bi-plus-lg"></i> Add Experience</button>
+                                            <button @click="AddExperience" class="btn btn-secondary"><i class="bi bi-plus-lg"></i> Add Experience</button>
                                         </div>
                                     </div>
                                     <div class="tab-pane show fade" id="Language" >
                                         <br><br>
                                         <div class="text-start">
                                             <h5 class="fw-semibold">Language</h5>
-                                            <form v-for="(getlanguage , index) in LanguageArray" :key="index" class="py-3">
+                                            <form v-for="(InputLanguage , index) in LanguageArray" :key="index" class="py-3">
+                                                <i @click="DeleteLanguage(index)" v-if="index > 0" class="bi bi-x-circle-fill text-danger me-1 mt-1" style="cursor: pointer;"></i>
                                                 <label for="skill" class="form-label">Spoken Languages</label>
-                                                <input id="skill" type="text" class="form-control shadow-none">
+                                                <input v-model="InputLanguage.Language" id="skill" type="text" class="form-control shadow-none">
                                             </form>
                                             <br>
-                                            <button @click="AddLanguage" class="btn btn-dark"><i class="bi bi-plus-lg"></i> Add Language</button>
+                                            <button @click="AddLanguage" class="btn btn-secondary"><i class="bi bi-plus-lg"></i> Add Language</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-
+                        <div class="col-lg-6 py-4 px-3">
+                            <div id="TemplatePdf" class="py-3 px-3 border rounded bg-white">
+                                <div v-for="(getInfo, index) in PersonalArray" :key="index" class="border-bottom border-dark">
+                                    <h2 class="fw-bold text-dark">{{ getInfo.Fullname }}</h2>
+                                    <p class="fw-normal text-dark mb-2" >{{ getInfo.Career }}</p>
+                                    <p class="fw-normal text-dark" style="font-size: 12px;">{{ getInfo.Summary }}</p>
+                                </div>
+                                <br>
+                                <div class="d-flex justify-content-between border-bottom border-dark pb-3">
+                                    <div class="text-start w-50">
+                                        <h4 class="fw-semibold text-dark">Contact</h4>
+                                    </div>
+                                    <div v-for="(getInfo, index) in PersonalArray" :key="index" class="text-start border-start border-dark ps-3 w-75">
+                                        <p class="fw-normal text-dark mb-2" style="font-size: 12px;">{{ getInfo.Email }}</p>
+                                        <p class="fw-normal text-dark mb-2" style="font-size: 12px;">{{ getInfo.Phone }}</p>
+                                        <p class="fw-normal text-dark mb-2" style="font-size: 12px;">{{ getInfo.Location }}</p>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="d-flex justify-content-between border-bottom border-dark pb-3">
+                                    <div class="text-start w-50">
+                                        <h4 class="fw-semibold text-dark">Education</h4>
+                                    </div>
+                                    <div class="d-flex justify-content-between border-start border-dark ps-3 w-75">
+                                        <div class="text-start w-100">
+                                            <template v-for="(getEdu, index) in EducationArray" :key="index">
+                                                <p class="fw-normal text-dark mb-2" style="font-size: 12px;">{{ getEdu.University }}</p>
+                                                <p class="fw-normal text-dark mb-2" style="font-size: 12px;">{{ getEdu.Program }}</p>
+                                            </template>
+                                        </div>
+                                        <div class="text-start w-50">
+                                            <template v-for="(getEdu, index) in EducationArray" :key="index">
+                                                <p class="fw-normal text-dark mb-2" style="font-size: 12px;">{{ getEdu.StartDate }}</p>
+                                                <p class="fw-normal text-dark mb-2" style="font-size: 12px;">{{ getEdu.EndDate }}</p>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="d-flex justify-content-between border-bottom border-dark pb-3">
+                                    <div class="text-start w-50">
+                                        <h4 class="fw-semibold text-dark">Experience</h4>
+                                    </div>
+                                    <div class="text-start border-start border-dark ps-3 w-75">
+                                        <template v-for="(getExp, index) in ExperienceArray" :key="index" >
+                                            <p class="fw-normal text-dark mb-2" style="font-size: 12px;">{{ getExp.Company }}</p>
+                                            <p class="fw-normal text-dark mb-2" style="font-size: 12px;">{{ getExp.Position }}</p>
+                                            <p class="fw-normal text-dark mb-2" style="font-size: 12px;">{{ getExp.StartDate }} - {{ getExp.EndDate }}</p>
+                                            <p class="fw-normal text-dark mb-2" style="font-size: 12px;"><i class="bi bi-suit-diamond-fill"></i> {{ getExp.Description }}</p>
+                                        </template>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="d-flex justify-content-between border-bottom border-dark pb-3">
+                                    <div class="text-start w-50">
+                                        <h4 class="fw-semibold text-dark">Skills</h4>
+                                    </div>
+                                    <div class="text-start border-start border-dark ps-3 w-75">
+                                        <template v-for="(getSkill, index) in SkillArray" :key="index" >
+                                            <span class="fw-normal text-dark mb-2" style="font-size: 13px;">{{ getSkill.Skill }}, </span>
+                                        </template>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="d-flex justify-content-between border-bottom border-dark pb-3">
+                                    <div class="text-start w-50">
+                                        <h4 class="fw-semibold text-dark">Language</h4>
+                                    </div>
+                                    <div class="text-start border-start border-dark ps-3 w-75">
+                                        <template v-for="(getLanguage, index) in LanguageArray" :key="index" >
+                                            <span class="fw-normal text-dark mb-2" style="font-size: 13px;">{{ getLanguage.Language }}, </span>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -143,17 +223,20 @@ export default {
     name: 'ChildTemplate1',
     data(){
         return{
+            PersonalArray: [
+                {Fullname: 'John Doe', Email: 'johndoe@gmail.com', Career: 'Full-Stack Developer', Phone: '0933 412 2253', Location: 'San Nicolas San Fernando Pampanga', Summary: 'Resourceful and detail-oriented Full-Stack Web Developer with hands-on experience in building responsive and user-focused web applications using Laravel, Vue.js, Bootstrap, and Tailwind CSS. Proven ability to manage both front-end and back-end development tasks, from creating dynamic interfaces to designing efficient database structures. Passionate about clean code, usability, and continuous learning. Eager to contribute to a team that values modern web standards and innovation.'}
+            ],
             EducationArray: [
-                {University: '', Program: '', StartDate: '', EndDate: ''}
+                {University: 'Pampanga State University', Program: 'BS in Information Technology', StartDate: '', EndDate: ''}
             ],
             SkillArray: [
-                {Skill: ''}
+                {Skill: 'Html'}
             ],
             ExperienceArray: [
-                {Company: '', Position: '', StartDate: '', EndDate: '', Description: ''}
+                {Company: 'Vishay Phil inc.', Position: 'Back-end Web Developer', StartDate: '', EndDate: '', Description: 'Developed and maintained server-side applications, optimized database queries, and ensured system reliability for internal tools and enterprise solutions. Collaborated with cross-functional teams to support automation, improve data workflows, and enhance system performance'}
             ],
             LanguageArray: [
-                {Language: ''}
+                {Language: 'English'}
             ]
         }
     },
@@ -170,13 +253,25 @@ export default {
         },
         AddExperience(){
             this.ExperienceArray.push({
-                Company: '', Position: '', StartDate: '', EndDate: '', Description
+                Company: '', Position: '', StartDate: '', EndDate: '', Description: ''
             });
         },
         AddLanguage(){
             this.LanguageArray.push({
                 Language: ''
             });
+        },
+        DeleteLanguage(index){
+            this.LanguageArray.splice(index, 1);
+        },
+        DeleteExperience(index){
+            this.ExperienceArray.splice(index, 1);
+        },
+        DeleteSkill(index){
+            this.SkillArray.splice(index, 1);
+        },
+        DeleteEducation(index){
+            this.EducationArray.splice(index, 1);
         }
     }
 }

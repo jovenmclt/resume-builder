@@ -4,6 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap';
 
+const theme = localStorage.getItem('theme') || 'light';
+document.documentElement.setAttribute('data-bs-theme', theme);
+
 createInertiaApp({
   resolve: name => {
     const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
