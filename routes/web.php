@@ -8,5 +8,8 @@ Route::get('/about', [FrontEndController::class, 'About']);
 Route::get('/features', [FrontEndController::class, 'Features']);
 Route::get('/templates', [FrontEndController::class, 'Templates']);
 
+//Action
+Route::post('/usermessage', [FrontEndController::class, 'ChatBox']);
+
 //Templates
 Route::get('/template1', [FrontEndController::class, 'Template_1']);

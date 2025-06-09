@@ -213,14 +213,18 @@
                         </div>
                     </div>
                 </section>
+                <ChatBotVue :MessageProps="MessageProps"/>
             </main>
         </div>
     </div>
 </template>
 
 <script>
+import ChatBotVue from '../../Index/ChatBot.vue';
 export default {
     name: 'ChildTemplate1',
+    components: {ChatBotVue},
+    props: {MessageProps:Array},
     data(){
         return{
             PersonalArray: [
@@ -273,7 +277,8 @@ export default {
         DeleteEducation(index){
             this.EducationArray.splice(index, 1);
         }
-    }
+    },
+   
 }
 </script>
 
