@@ -14,18 +14,18 @@
                                     <div class="carousel-item active ">
                                         <div class="row justify-content-center">
                                             <div v-for="(getTemp, index) in Templates_Container1" :key="index" class="col-3">
-                                                <button @click="TempRoute(getTemp.id)" class="btn shadow-none btn-outline-none">
+                                                <a href="#" @click="TempRoute(getTemp.id)" class="shadow-none btn-outline-none">
                                                     <img :src="getTemp.srcs" class="d-block w-100 border border-dark rounded" alt="...">
-                                                </button>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="carousel-item ">
                                         <div class="row justify-content-center">
                                             <div v-for="(getTemp, index) in Templates_Container2" :key="index" class="col-3">
-                                                <button @click="TempRoute(getTemp.id)" class="btn shadow-none btn-outline-none">
+                                                <a href="#" @click="TempRoute(getTemp.id)" class="shadow-none btn-outline-none">
                                                     <img :src="getTemp.srcs" class="d-block w-100 border border-dark rounded" alt="...">
-                                                </button>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -43,9 +43,9 @@
                             <div id="carouselExample" class="carousel slide d-md-none d-block" data-bs-ride="carousel">
                                 <div class="carousel-inner">
                                     <div v-for="(getTemp, index) in AllTemplates" :key="index" :class="['carousel-item', { active: index === 0 }]" >
-                                        <button @click="TempRoute(getTemp.id)" class="btn shadow-none">
+                                        <a href="#" @click="TempRoute(getTemp.id)" class="shadow-none">
                                             <img :src="getTemp.srcs" class="d-block w-75 mx-auto border border-dark rounded"  alt="Slide image" />
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">

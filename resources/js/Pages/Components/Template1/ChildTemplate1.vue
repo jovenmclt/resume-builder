@@ -2,10 +2,10 @@
     <div class="container-xxl">
         <div class="row justify-content-center">
             <main class="col-12">
-                <section id="section1" class="px-md-3 px-2">
-                    <div class="row py-md-3 py- px-md-3 px-2 border rounded justify-content-center ">
-                        <div class="col-lg-6 py-4 px-3">
-                            <div class="text-start ">
+                <section id="section1" >
+                    <div class="row justify-content-center ">
+                        <div class="col-lg-6">
+                            <div class="text-start border py-4 px-3 rounded" style="min-height: 840px;">
                                 <ul class="nav nav-tabs">
                                     <li class="nav-item">
                                         <a class="nav-link active" data-bs-toggle="tab" href="#PersonalInfo">Personal </a>
@@ -135,8 +135,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 py-4 px-3">
-                            <div id="TemplatePdf" class="py-3 px-3 border rounded bg-white">
+                        <div class="col-lg-6 mt-lg-0 mt-4" >
+                            <div id="TemplatePdf" class="py-4 px-3 border bg-white rounded" style="min-height: 840px;">
                                 <div v-for="(getInfo, index) in PersonalArray" :key="index" class="border-bottom border-dark">
                                     <h2 class="fw-bold text-dark">{{ getInfo.Fullname }}</h2>
                                     <p class="fw-normal text-dark mb-2" >{{ getInfo.Career }}</p>
@@ -228,16 +228,16 @@ export default {
     data(){
         return{
             PersonalArray: [
-                {Fullname: 'John Doe', Email: 'johndoe@gmail.com', Career: 'Full-Stack Developer', Phone: '0933 412 2253', Location: 'San Nicolas San Fernando Pampanga', Summary: 'Resourceful and detail-oriented Full-Stack Web Developer with hands-on experience in building responsive and user-focused web applications using Laravel, Vue.js, Bootstrap, and Tailwind CSS. Proven ability to manage both front-end and back-end development tasks, from creating dynamic interfaces to designing efficient database structures. Passionate about clean code, usability, and continuous learning. Eager to contribute to a team that values modern web standards and innovation.'}
+                {Fullname: 'John Doe', Email: 'johndoe@gmail.com', Career: 'Full-Stack Developer', Phone: '0933-412-**** ', Location: '742 Evergreen Terrace, Springfield, IL 62704, USA', Summary: 'Resourceful and detail-oriented Full-Stack Web Developer with hands-on experience in building responsive and user-focused web applications using Laravel, Vue.js, Bootstrap, and Tailwind CSS. Proven ability to manage both front-end and back-end development tasks, from creating dynamic interfaces to designing efficient database structures. Passionate about clean code, usability, and continuous learning. Eager to contribute to a team that values modern web standards and innovation.'}
             ],
             EducationArray: [
-                {University: 'Pampanga State University', Program: 'BS in Information Technology', StartDate: '', EndDate: ''}
+                {University: 'Westfield University', Program: 'BS in Information Technology', StartDate: '2025-06-10', EndDate: '2025-06-10'}
             ],
             SkillArray: [
                 {Skill: 'Html'}
             ],
             ExperienceArray: [
-                {Company: 'Vishay Phil inc.', Position: 'Back-end Web Developer', StartDate: '', EndDate: '', Description: 'Developed and maintained server-side applications, optimized database queries, and ensured system reliability for internal tools and enterprise solutions. Collaborated with cross-functional teams to support automation, improve data workflows, and enhance system performance'}
+                {Company: 'Nexora Tech Solutions', Position: 'Back-end Web Developer', StartDate: '2025-06-10', EndDate: '2025-06-10', Description: 'Developed and maintained server-side applications, optimized database queries, and ensured system reliability for internal tools and enterprise solutions. Collaborated with cross-functional teams to support automation, improve data workflows, and enhance system performance'}
             ],
             LanguageArray: [
                 {Language: 'English'}
@@ -278,7 +278,7 @@ export default {
             this.EducationArray.splice(index, 1);
         }
     },
-   
+
 }
 </script>
 
@@ -286,7 +286,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=League+Spartan:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 section {
-    padding: calc(35px + 1rem) 0;
+    padding: calc(10px + 1rem) 0;
     font-family: "Poppins", sans-serif;
     overflow-wrap: break-word;
 }

@@ -19,7 +19,7 @@
                         <a href="#" class="ms-2 text-decoration-none " style="font-size: 13px;">Terms</a>
                     </div>
                     <div class="text-start ">
-                        <h5 class="fw-normal " style="font-size: 13px;">Developed by: Joven Miclat</h5>
+                        <h5 class="fw-normal " style="font-size: 13px;">Developed by: jovenmclt</h5>
                     </div>
                 </div>
             </div>

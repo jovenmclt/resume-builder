@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Client\RequestException;
 
 class FrontEndController extends Controller
@@ -54,12 +55,8 @@ class FrontEndController extends Controller
                 $AIReply = 'Sorry, I am having trouble responding right now. Please try again later.';
             }
 
-            if (!$AIReply) {
-                $AIReply = 'Sorry, I am having trouble responding right now. Please try again later.';
-            }
-
-        } catch (RequestException $e) {
-            $AIReply = 'Sorry, I am having trouble responding right now. Please try again later.';
+        } catch (Exception $e) {
+            $AIReply = 'Network issue: Please check your internet connection.';
         }
 
         $messages[] = ['role' => 'chatbot', 'content' => $AIReply];
