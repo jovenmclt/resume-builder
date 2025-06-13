@@ -4,8 +4,17 @@
             <main class="col-12">
                 <section id="section1" >
                     <div class="row justify-content-center ">
+                        <div class="d-flex flex-lg-nowrap flex-wrap justify-content-between px-4 pb-4">
+                            <div class="text-start">
+                                <h1 class="fw-bold">Resume Builder </h1>
+                                <p class="fw-light mb-0">Build your resume, showcase your potential fast, simple, and professional.</p>
+                            </div>
+                            <div class="text-start mt-md-4 mt-2">
+                                <button @click="btnshowPreview" class="btn btn-dark rounded-5"><img width="25" height="25" src="./assets/pdf file.png" alt=""> <span class="pe-2" style="font-size: 13px;">Generate PDF</span></button>
+                            </div>
+                        </div>
                         <div class="col-lg-6">
-                            <div class="text-start border py-4 px-3 rounded" style="min-height: 840px;">
+                            <div class="text-start border py-4 px-3 rounded shadow-sm" style="min-height: 840px;">
                                 <ul class="nav nav-tabs">
                                     <li class="nav-item">
                                         <a class="nav-link active" data-bs-toggle="tab" href="#PersonalInfo">Personal </a>
@@ -136,7 +145,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 mt-lg-0 mt-4" >
-                            <div id="TemplatePdf" class="py-4 px-3 border bg-white rounded" style="min-height: 840px;">
+                            <div id="TemplatePdf" class="py-4 px-3 border bg-white shadow-sm rounded" style="min-height: 840px;">
                                 <div v-for="(getInfo, index) in PersonalArray" :key="index" class="border-bottom border-dark">
                                     <h2 class="fw-bold text-dark">{{ getInfo.Fullname }}</h2>
                                     <p class="fw-normal text-dark mb-2" >{{ getInfo.Career }}</p>
@@ -213,8 +222,17 @@
                         </div>
                     </div>
                 </section>
+
                 <ChatBotVue :MessageProps="MessageProps"/>
-                <jsPDFApprovalVue />
+
+                <div v-if="PdfPreview" class="iframe-css z-1 d-flex flex-column">
+                    <iframe id="pdf-preview" class="w-75 h-75"></iframe>
+                    <div class="text-start w-75">
+                        <button @click="btnClosePreview" class="btn btn-secondary w-50 rounded-0"><i class="bi bi-x-lg"></i> Close Preview</button>
+                        <button @click="btnDownloadPDF" class="btn btn-dark w-50 rounded-0"><i class="bi bi-file-earmark-pdf-fill"></i> Download PDF</button>
+                    </div>
+                </div>
+
             </main>
         </div>
     </div>
@@ -222,10 +240,10 @@
 
 <script>
 import ChatBotVue from '../../Index/ChatBot.vue';
-import jsPDFApprovalVue from '../jsPDFApproval/jsPDFApproval.vue';
+import html2pdf from 'html2pdf.js'
 export default {
     name: 'ChildTemplate1',
-    components: {ChatBotVue, jsPDFApprovalVue },
+    components: {ChatBotVue},
     props: {MessageProps:Array},
     data(){
         return{
@@ -243,7 +261,10 @@ export default {
             ],
             LanguageArray: [
                 {Language: 'English'}
-            ]
+            ],
+
+            PdfPreview: false,
+            pdfUrl: null,
         }
     },
     methods:{
@@ -278,8 +299,53 @@ export default {
         },
         DeleteEducation(index){
             this.EducationArray.splice(index, 1);
+        },
+
+        btnshowPreview(){
+           this.PdfPreview = !this.PdfPreview;
+        },
+        btnClosePreview(){
+            this.PdfPreview = false;
+            this.pdfUrl = null
+            document.getElementById('TemplatePdf').classList.add('border');
+        },
+        btnDownloadPDF(){
+            const a = document.createElement("a");
+            a.href = this.pdfUrl;
+            a.download = "Resumebuilder.pdf";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+
+            this.btnClosePreview();
         }
     },
+    watch:{
+        PdfPreview(value){
+            if (value) {
+                this.$nextTick(() => {
+                    const element = document.getElementById('TemplatePdf');
+                    document.getElementById('TemplatePdf').classList.remove('border');
+                    html2pdf()
+                        .set({
+                            margin: 10,
+                            filename: 'Resumebuilder.pdf',
+                            image: { type: 'jpeg', quality: 0.98 },
+                            html2canvas: { scale: 5, backgroundColor: '#ffffff' },
+                            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                        })
+                        .from(element)
+                        .toPdf()
+                        .get('pdf')
+                        .then(pdf => {
+                            const pdfUrl = URL.createObjectURL(pdf.output('blob'));
+                            this.pdfUrl = pdfUrl;
+                            document.getElementById('pdf-preview').src = pdfUrl;
+                        });
+                });
+            }
+        }
+    }
 
 }
 </script>
@@ -287,9 +353,24 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=League+Spartan:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-section {
-    padding: calc(40px + 1rem) 0;
-    font-family: "Poppins", sans-serif;
+main{
     overflow-wrap: break-word;
+}
+section {
+    padding: calc(10px + 1rem) 0;
+    font-family: "Poppins", sans-serif;
+}
+
+.iframe-css{
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(86, 88, 88, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 </style>

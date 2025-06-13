@@ -1,5 +1,5 @@
 <template>
-    <div class="text-end position-fixed" style="bottom: 65px; right: 2%;">
+    <div class="text-end position-fixed" style="bottom: 10px; right: 1%;">
         <div v-if="ShowChatbox"  id="chatbox" class="rounded-3 d-flex flex-column justify-content-between bg-white shadow-lg" style="width: 350px; height: 400px;">
             <div class="d-flex py-2 px-2 justify-content-between shadow-md border-bottom border-secondary">
                 <div class="text-start mt-1">
