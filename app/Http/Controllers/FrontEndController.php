@@ -65,9 +65,17 @@ class FrontEndController extends Controller
 
         return back();
     }
+
+    
     //Templates
     public function Template_1(){
         return Inertia::render('Index/Template1',[
+            'MessageProps' => Session::get('chat_messages', [])
+        ]);
+    }
+
+    public function Template_2(){
+        return Inertia::render('Index/Template2',[
             'MessageProps' => Session::get('chat_messages', [])
         ]);
     }

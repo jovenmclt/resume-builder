@@ -109,7 +109,8 @@ export default {
             switch(id){
                 case '1' :
                     return router.visit('/template1');
-
+                case '2' :
+                    return router.visit('/template2');
             }
 
         }

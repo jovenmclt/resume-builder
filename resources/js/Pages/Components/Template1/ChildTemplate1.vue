@@ -10,26 +10,33 @@
                                 <p class="fw-light mb-0">Build your resume, showcase your potential fast, simple, and professional.</p>
                             </div>
                             <div class="text-start mt-md-4 mt-2">
-                                <button @click="btnshowPreview" class="btn btn-dark rounded-5"><img width="25" height="25" src="./assets/pdf file.png" alt=""> <span class="pe-2" style="font-size: 13px;">Generate PDF</span></button>
+                                <button @click="btnshowPreview" style="background-color: #333446;" class="btn text-white rounded-5"><img width="25" height="25" src="./assets/pdf file.png" alt=""> <span class="pe-2" style="font-size: 13px;">Generate PDF</span></button>
+                                <div v-if="PdfPreview" class="iframe-css z-1 d-flex flex-column">
+                                    <iframe id="pdf-preview" class="w-75 h-75 py-3 px-3 bg-white"></iframe>
+                                    <div class="text-start w-75">
+                                        <button @click="btnClosePreview" class="btn btn-secondary w-50 rounded-0"><i class="bi bi-x-lg"></i> Close Preview</button>
+                                        <button @click="btnDownloadPDF" class="btn btn-dark w-50 rounded-0"><i class="bi bi-file-earmark-pdf-fill"></i> Download PDF</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="text-start border py-4 px-3 rounded shadow-sm" style="min-height: 840px;">
                                 <ul class="nav nav-tabs">
                                     <li class="nav-item">
-                                        <a class="nav-link active" data-bs-toggle="tab" href="#PersonalInfo">Personal </a>
+                                        <a style="font-size: 15px;" class="nav-link active" data-bs-toggle="tab" href="#PersonalInfo"><i class="bi bi-person-fill"></i> Personal</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-bs-toggle="tab" href="#Education">Education</a>
+                                        <a style="font-size: 15px;" class="nav-link" data-bs-toggle="tab" href="#Education"><i class="bi bi-mortarboard-fill"></i> Education</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-bs-toggle="tab" href="#Skills">Skills</a>
+                                        <a style="font-size: 15px;" class="nav-link" data-bs-toggle="tab" href="#Skills"><i class="bi bi-layers-fill"></i> Skills</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link"  data-bs-toggle="tab" href="#Experience">Experience</a>
+                                        <a style="font-size: 15px;" class="nav-link"  data-bs-toggle="tab" href="#Experience"><i class="bi bi-briefcase-fill"></i> Experience</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link"  data-bs-toggle="tab" href="#Language">Language</a>
+                                        <a style="font-size: 15px;" class="nav-link"  data-bs-toggle="tab" href="#Language"><i class="bi bi-bookmark-dash-fill"></i> Language</a>
                                     </li>
                                 </ul>
                                 <div class="tab-content">
@@ -54,7 +61,7 @@
                                                 <input v-model="InputInfo.Location" id="Location" type="text" class="form-control shadow-none">
                                                 <br>
                                                 <label for="Summary" class="form-label">Professional Summary</label>
-                                                <textarea v-model="InputInfo.Summary" id="Summary" class="form-control shadow-none" rows="5"></textarea>
+                                                <textarea v-model="InputInfo.Summary" id="Summary" class="form-control shadow-none" rows="7"></textarea>
                                             </form>
                                         </div>
                                     </div>
@@ -122,7 +129,7 @@
                                                 </div>
                                                 <br>
                                                 <label for="Description" class="form-label">Job Description</label>
-                                                <textarea v-model="InputExp.Description" id="Description" class="form-control shadow-none" rows="4"></textarea>
+                                                <textarea v-model="InputExp.Description" id="Description" class="form-control shadow-none" rows="5"></textarea>
                                             </form>
                                             <br>
                                             <button @click="AddExperience" class="btn btn-secondary"><i class="bi bi-plus-lg"></i> Add Experience</button>
@@ -145,11 +152,11 @@
                             </div>
                         </div>
                         <div class="col-lg-6 mt-lg-0 mt-4" >
-                            <div id="TemplatePdf" class="py-4 px-3 border bg-white shadow-sm rounded" style="min-height: 840px;">
+                            <div id="TemplatePdf" class="py-4 px-3 border bg-white shadow-sm rounded" style="min-height: 840px;" >
                                 <div v-for="(getInfo, index) in PersonalArray" :key="index" class="border-bottom border-dark">
                                     <h2 class="fw-bold text-dark">{{ getInfo.Fullname }}</h2>
                                     <p class="fw-normal text-dark mb-2" >{{ getInfo.Career }}</p>
-                                    <p class="fw-normal text-dark" style="font-size: 12px;">{{ getInfo.Summary }}</p>
+                                    <p class="fw-normal text-dark" style="font-size: 13px;">{{ getInfo.Summary }}</p>
                                 </div>
                                 <br>
                                 <div class="d-flex justify-content-between border-bottom border-dark pb-3">
@@ -157,9 +164,9 @@
                                         <h4 class="fw-semibold text-dark">Contact</h4>
                                     </div>
                                     <div v-for="(getInfo, index) in PersonalArray" :key="index" class="text-start border-start border-dark ps-3 w-75">
-                                        <p class="fw-normal text-dark mb-2" style="font-size: 12px;">{{ getInfo.Email }}</p>
-                                        <p class="fw-normal text-dark mb-2" style="font-size: 12px;">{{ getInfo.Phone }}</p>
-                                        <p class="fw-normal text-dark mb-2" style="font-size: 12px;">{{ getInfo.Location }}</p>
+                                        <p class="fw-normal text-dark mb-2" style="font-size: 13px;">{{ getInfo.Email }}</p>
+                                        <p class="fw-normal text-dark mb-2" style="font-size: 13px;">{{ getInfo.Phone }}</p>
+                                        <p class="fw-normal text-dark mb-2" style="font-size: 13px;">{{ getInfo.Location }}</p>
                                     </div>
                                 </div>
                                 <br>
@@ -170,14 +177,14 @@
                                     <div class="d-flex justify-content-between border-start border-dark ps-3 w-75">
                                         <div class="text-start w-100">
                                             <template v-for="(getEdu, index) in EducationArray" :key="index">
-                                                <p class="fw-normal text-dark mb-2" style="font-size: 12px;">{{ getEdu.University }}</p>
-                                                <p class="fw-normal text-dark mb-2" style="font-size: 12px;">{{ getEdu.Program }}</p>
+                                                <p class="fw-normal text-dark mb-2" style="font-size: 13px;">{{ getEdu.University }}</p>
+                                                <p class="fw-normal text-dark mb-2" style="font-size: 13px;">{{ getEdu.Program }}</p>
                                             </template>
                                         </div>
                                         <div class="text-start w-50">
                                             <template v-for="(getEdu, index) in EducationArray" :key="index">
-                                                <p class="fw-normal text-dark mb-2" style="font-size: 12px;">{{ getEdu.StartDate }}</p>
-                                                <p class="fw-normal text-dark mb-2" style="font-size: 12px;">{{ getEdu.EndDate }}</p>
+                                                <p class="fw-normal text-dark mb-2" style="font-size: 13px;">{{ getEdu.StartDate }}</p>
+                                                <p class="fw-normal text-dark mb-2" style="font-size: 13px;">{{ getEdu.EndDate }}</p>
                                             </template>
                                         </div>
                                     </div>
@@ -189,10 +196,10 @@
                                     </div>
                                     <div class="text-start border-start border-dark ps-3 w-75">
                                         <template v-for="(getExp, index) in ExperienceArray" :key="index" >
-                                            <p class="fw-normal text-dark mb-2" style="font-size: 12px;">{{ getExp.Company }}</p>
-                                            <p class="fw-normal text-dark mb-2" style="font-size: 12px;">{{ getExp.Position }}</p>
-                                            <p class="fw-normal text-dark mb-2" style="font-size: 12px;">{{ getExp.StartDate }} - {{ getExp.EndDate }}</p>
-                                            <p class="fw-normal text-dark mb-2" style="font-size: 12px;"><i class="bi bi-suit-diamond-fill"></i> {{ getExp.Description }}</p>
+                                            <p class="fw-normal text-dark mb-2" style="font-size: 13px;">{{ getExp.Company }}</p>
+                                            <p class="fw-normal text-dark mb-2" style="font-size: 13px;">{{ getExp.Position }}</p>
+                                            <p class="fw-normal text-dark mb-2" style="font-size: 13px;">{{ getExp.StartDate }} - {{ getExp.EndDate }}</p>
+                                            <p class="fw-normal text-dark mb-2" style="font-size: 13px;"><i class="bi bi-suit-diamond-fill"></i> {{ getExp.Description }}</p>
                                         </template>
                                     </div>
                                 </div>
@@ -222,17 +229,7 @@
                         </div>
                     </div>
                 </section>
-
                 <ChatBotVue :MessageProps="MessageProps"/>
-
-                <div v-if="PdfPreview" class="iframe-css z-1 d-flex flex-column">
-                    <iframe id="pdf-preview" class="w-75 h-75"></iframe>
-                    <div class="text-start w-75">
-                        <button @click="btnClosePreview" class="btn btn-secondary w-50 rounded-0"><i class="bi bi-x-lg"></i> Close Preview</button>
-                        <button @click="btnDownloadPDF" class="btn btn-dark w-50 rounded-0"><i class="bi bi-file-earmark-pdf-fill"></i> Download PDF</button>
-                    </div>
-                </div>
-
             </main>
         </div>
     </div>
@@ -248,7 +245,7 @@ export default {
     data(){
         return{
             PersonalArray: [
-                {Fullname: 'John Doe', Email: 'johndoe@gmail.com', Career: 'Full-Stack Developer', Phone: '0933-412-**** ', Location: '742 Evergreen Terrace, Springfield, IL 62704, USA', Summary: 'Resourceful and detail-oriented Full-Stack Web Developer with hands-on experience in building responsive and user-focused web applications using Laravel, Vue.js, Bootstrap, and Tailwind CSS. Proven ability to manage both front-end and back-end development tasks, from creating dynamic interfaces to designing efficient database structures. Passionate about clean code, usability, and continuous learning. Eager to contribute to a team that values modern web standards and innovation.'}
+                {Fullname: 'Emily Jackson', Email: 'johndoe@gmail.com', Career: 'Full-Stack Developer', Phone: '0933-412-**** ', Location: '742 Evergreen Terrace, Springfield, IL 62704, USA', Summary: 'Resourceful and detail-oriented Full-Stack Web Developer with hands-on experience in building responsive and user-focused web applications using Laravel, Vue.js, Bootstrap, and Tailwind CSS. Proven ability to manage both front-end and back-end development tasks, from creating dynamic interfaces to designing efficient database structures. Passionate about clean code, usability, and continuous learning. Eager to contribute to a team that values modern web standards and innovation.'}
             ],
             EducationArray: [
                 {University: 'Westfield University', Program: 'BS in Information Technology', StartDate: '2025-06-10', EndDate: '2025-06-10'}
@@ -331,7 +328,7 @@ export default {
                             margin: 10,
                             filename: 'Resumebuilder.pdf',
                             image: { type: 'jpeg', quality: 0.98 },
-                            html2canvas: { scale: 5, backgroundColor: '#ffffff' },
+                            html2canvas: { scale: 7, backgroundColor: '#ffffff' },
                             jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
                         })
                         .from(element)

@@ -13,3 +13,4 @@ Route::post('/usermessage', [FrontEndController::class, 'ChatBox']);
 
 //Templates
 Route::get('/template1', [FrontEndController::class, 'Template_1']);
+Route::get('/template2', [FrontEndController::class, 'Template_2']);
