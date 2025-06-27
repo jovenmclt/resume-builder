@@ -38,6 +38,12 @@
                                     <li class="nav-item">
                                         <a style="font-size: 15px;" class="nav-link"  data-bs-toggle="tab" href="#Language"><i class="bi bi-bookmark-dash-fill"></i> Language</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a style="font-size: 15px;" class="nav-link"  data-bs-toggle="tab" href="#Tools"><i class="bi bi-tools"></i> Tools</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a style="font-size: 15px;" class="nav-link"  data-bs-toggle="tab" href="#Certificate"><i class="bi bi-award-fill"></i> Certification</a>
+                                    </li>
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="PersonalInfo" >
@@ -109,7 +115,7 @@
                                         <br><br>
                                         <div class="text-start">
                                             <h5 class="fw-semibold">Experience</h5>
-                                            <form v-for="(InputExp , index) in ExperienceArray" :key="index" class="py-3">
+                                            <div v-for="(InputExp , index) in ExperienceArray" :key="index" class="py-3">
                                                 <i @click="DeleteExperience(index)" v-if="index > 0" class="bi bi-x-circle-fill text-danger me-1 mt-1" style="cursor: pointer;"></i>
                                                 <label for="Company" class="form-label">Company</label>
                                                 <input v-model="InputExp.Company" id="Company" type="text" class="form-control shadow-none">
@@ -128,9 +134,16 @@
                                                     </div>
                                                 </div>
                                                 <br>
+                                                <label for="achive" class="form-label">Achievements</label>
+                                                <div v-for="(getachive, indx) in InputExp.achieve" :key="indx" class="input-group gap-1 mt-2">
+                                                    <button v-if="indx == 0 " @click="AddExperienceAchieve(index)" class="btn btn-secondary">+</button>
+                                                    <button v-if="indx > 0 " @click="DeleteExperienceAchieve(index,indx)" class="btn btn-danger">-</button>
+                                                    <input v-model="getachive.achievements" id="achive" type="text" class="form-control shadow-none">
+                                                </div>
+                                                <br>
                                                 <label for="Description" class="form-label">Job Description</label>
                                                 <textarea v-model="InputExp.Description" id="Description" class="form-control shadow-none" rows="5"></textarea>
-                                            </form>
+                                            </div>
                                             <br>
                                             <button @click="AddExperience" class="btn btn-secondary"><i class="bi bi-plus-lg"></i> Add Experience</button>
                                         </div>
@@ -148,80 +161,101 @@
                                             <button @click="AddLanguage" class="btn btn-secondary"><i class="bi bi-plus-lg"></i> Add Language</button>
                                         </div>
                                     </div>
+                                    <div class="tab-pane show fade" id="Tools" >
+                                        <br><br>
+                                        <div class="text-start">
+                                            <h5 class="fw-semibold">Work Tools</h5>
+                                            <form v-for="(InputTools , index) in ToolsArray" :key="index" class="py-3">
+                                                <i @click="DeleteTool(index)" v-if="index > 0" class="bi bi-x-circle-fill text-danger me-1 mt-1" style="cursor: pointer;"></i>
+                                                <label for="tool" class="form-label">Tools</label>
+                                                <input v-model="InputTools.tool" id="tool" type="text" class="form-control shadow-none">
+                                            </form>
+                                            <br>
+                                            <button @click="AddTools" class="btn btn-secondary"><i class="bi bi-plus-lg"></i> Add Language</button>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane show fade" id="Certificate" >
+                                        <br><br>
+                                        <div class="text-start">
+                                            <h5 class="fw-semibold">Certificate</h5>
+                                            <form v-for="(InputCertificate , index) in CertificateArray" :key="index" class="py-3">
+                                                <i @click="DeleteCertificate(index)" v-if="index > 0" class="bi bi-x-circle-fill text-danger me-1 mt-1" style="cursor: pointer;"></i>
+                                                <label for="cert" class="form-label">Certificate Details</label>
+                                                <input v-model="InputCertificate.Details" id="cert" type="text" class="form-control shadow-none">
+                                                <br>
+                                                <label for="Date" class="form-label">Date</label>
+                                                <input v-model="InputCertificate.Date" id="Date" type="date" class="form-control shadow-none">
+                                            </form>
+                                            <br>
+                                            <button @click="AddCertificate" class="btn btn-secondary"><i class="bi bi-plus-lg"></i> Add Certificate</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-7 mt-lg-0 mt-4" >
                             <div id="TemplatePdf" class="py-4 px-3 border bg-white shadow-sm rounded" style="min-height: 840px;" >
-                                <div v-for="(getInfo, index) in PersonalArray" :key="index" class="border-bottom border-dark">
-                                    <h2 class="fw-bold text-dark">{{ getInfo.Fullname }}</h2>
-                                    <p class="fw-normal text-dark mb-2" >{{ getInfo.Career }}</p>
-                                    <p class="fw-normal text-dark" style="font-size: 13px;">{{ getInfo.Summary }}</p>
-                                </div>
-                                <br>
-                                <div class="d-flex justify-content-between border-bottom border-dark pb-3">
-                                    <div class="text-start w-50">
-                                        <h4 class="fw-semibold text-dark">Contact</h4>
+                                <div class="d-flex justify-content-between gap-4">
+                                    <div v-for="(getinfo, index) in PersonalArray" :key="index" style="width: 65%;" class="text-start">
+                                        <h2 class="fw-semibold text-dark">{{ getinfo.Fullname }}</h2>
+                                        <p class="fw-normal text-dark" style="font-size: 12px; ">{{ getinfo.Summary }}</p>
                                     </div>
-                                    <div v-for="(getInfo, index) in PersonalArray" :key="index" class="text-start border-start border-dark ps-3 w-75">
-                                        <p class="fw-normal text-dark mb-2" style="font-size: 13px;">{{ getInfo.Email }}</p>
-                                        <p class="fw-normal text-dark mb-2" style="font-size: 13px;">{{ getInfo.Phone }}</p>
-                                        <p class="fw-normal text-dark mb-2" style="font-size: 13px;">{{ getInfo.Location }}</p>
+                                    <div v-for="(getinfo, index) in PersonalArray" :key="index" style="width: 35%;" class="text-start mt-2">
+                                        <p class="fw-semibold text-dark mb-1" style="font-size: 12px; ">{{ getinfo.Career }}</p>
+                                        <p class="fw-normal text-dark mb-1" style="font-size: 12px; ">{{ getinfo.Phone }}</p>
+                                        <p class="fw-normal text-dar mb-1" style="font-size: 12px; ">{{ getinfo.Email }}</p>
+                                        <p class="fw-normal text-dark" style="font-size: 12px; ">{{ getinfo.Location }}</p>
                                     </div>
                                 </div>
-                                <br>
-                                <div class="d-flex justify-content-between border-bottom border-dark pb-3">
-                                    <div class="text-start w-50">
-                                        <h4 class="fw-semibold text-dark">Education</h4>
-                                    </div>
-                                    <div class="d-flex justify-content-between border-start border-dark ps-3 w-75">
-                                        <div class="text-start w-100">
-                                            <template v-for="(getEdu, index) in EducationArray" :key="index">
-                                                <p class="fw-normal text-dark mb-2" style="font-size: 13px;">{{ getEdu.University }}</p>
-                                                <p class="fw-normal text-dark mb-2" style="font-size: 13px;">{{ getEdu.Program }}</p>
-                                            </template>
+                                <div class="d-flex justify-content-between mt-3 gap-4">
+                                    <div class="text-start" style="width: 65%;">
+                                        <div class="border-bottom mb-3">
+                                            <h5 class="fw-bold text-dark" style="font-size: 14px; ">EXPERIENCE</h5>
                                         </div>
-                                        <div class="text-start w-50">
-                                            <template v-for="(getEdu, index) in EducationArray" :key="index">
-                                                <p class="fw-normal text-dark mb-2" style="font-size: 13px;">{{ getEdu.StartDate }}</p>
-                                                <p class="fw-normal text-dark mb-2" style="font-size: 13px;">{{ getEdu.EndDate }}</p>
-                                            </template>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="d-flex justify-content-between border-bottom border-dark pb-3">
-                                    <div class="text-start w-50">
-                                        <h4 class="fw-semibold text-dark">Experience</h4>
-                                    </div>
-                                    <div class="text-start border-start border-dark ps-3 w-75">
-                                        <template v-for="(getExp, index) in ExperienceArray" :key="index" >
-                                            <p class="fw-normal text-dark mb-2" style="font-size: 13px;">{{ getExp.Company }}</p>
-                                            <p class="fw-normal text-dark mb-2" style="font-size: 13px;">{{ getExp.Position }}</p>
-                                            <p class="fw-normal text-dark mb-2" style="font-size: 13px;">{{ getExp.StartDate }} - {{ getExp.EndDate }}</p>
-                                            <p class="fw-normal text-dark mb-2" style="font-size: 13px;"><i class="bi bi-suit-diamond-fill"></i> {{ getExp.Description }}</p>
+                                        <template v-for="(getexp, index) in ExperienceArray" :key="index">
+                                            <p class="fw-light text-secondary mb-1" style="font-size: 12px; ">{{ getexp.StartDate }} - {{ getexp.EndDate }}</p>
+                                            <p class="fw-normal text-dark mb-1" >{{ getexp.Company }} - {{ getexp.Position }}</p>
+                                            <p class="fw-light text-dark mb-1" style="font-size: 12px; ">{{ getexp.Description }}</p>
+                                            <ul>
+                                                <li v-for="(getachive, indx) in getexp.achieve" :key="indx">
+                                                    <p class="fw-normal text-dark mb-0" style="font-size: 12px; ">{{ getachive.achievements }}</p>
+                                                </li>
+                                            </ul>
                                         </template>
                                     </div>
-                                </div>
-                                <br>
-                                <div class="d-flex justify-content-between border-bottom border-dark pb-3">
-                                    <div class="text-start w-50">
-                                        <h4 class="fw-semibold text-dark">Skills</h4>
-                                    </div>
-                                    <div class="text-start border-start border-dark ps-3 w-75">
-                                        <template v-for="(getSkill, index) in SkillArray" :key="index" >
-                                            <span class="fw-normal text-dark mb-2" style="font-size: 13px;">{{ getSkill.Skill }}, </span>
+                                    <div class="text-start" style="width: 35%;">
+                                        <div class="border-bottom mb-3">
+                                            <h5 class="fw-bold text-dark" style="font-size: 14px; ">SKILLS</h5>
+                                        </div>
+                                        <template v-for="(getskill, index) in SkillArray" :key="index">
+                                            <span class="fw-normal text-dark mb-1" style="font-size: 12px; ">{{ getskill.Skill}}, </span>
                                         </template>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="d-flex justify-content-between border-bottom border-dark pb-3">
-                                    <div class="text-start w-50">
-                                        <h4 class="fw-semibold text-dark">Language</h4>
-                                    </div>
-                                    <div class="text-start border-start border-dark ps-3 w-75">
-                                        <template v-for="(getLanguage, index) in LanguageArray" :key="index" >
-                                            <span class="fw-normal text-dark mb-2" style="font-size: 13px;">{{ getLanguage.Language }}, </span>
+                                        <div class="text-start mt-4">
+                                            <h6 class="fw-normal text-dark mb-1">Tools</h6>
+                                            <template v-for="(gettool, index) in ToolsArray" :key="index">
+                                                <span class="fw-normal text-dark mb-1" style="font-size: 12px; ">{{ gettool.tool}}, </span>
+                                            </template>
+                                        </div>
+                                        <div class="border-bottom my-3">
+                                            <h5 class="fw-bold text-dark" style="font-size: 14px; ">EDUCATION</h5>
+                                        </div>
+                                        <template v-for="(getedu, index) in EducationArray" :key="index">
+                                            <p class="fw-light text-secondary mb-1" style="font-size: 12px; ">{{ getedu.StartDate}} - {{ getedu.EndDate }} </p>
+                                            <p class="fw-semibold text-dark mb-1" style="font-size: 12px; ">{{ getedu.University}} </p>
+                                            <p class="fw-normal text-dark mb-1" style="font-size: 12px; ">{{ getedu.Program}} </p>
+                                        </template>
+                                        <div class="border-bottom my-3">
+                                            <h5 class="fw-bold text-dark" style="font-size: 14px; ">LANGUAGES</h5>
+                                        </div>
+                                        <template v-for="(getlanguage, index) in LanguageArray" :key="index">
+                                            <span class="fw-normal text-dark mb-1" style="font-size: 12px; ">{{ getlanguage.Language}}, </span>
+                                        </template>
+                                        <div class="border-bottom my-3">
+                                            <span class="fw-bold text-dark" style="font-size: 14px; ">RECOGNITIONS/CERTIFICATES</span>
+                                        </div>
+                                        <template v-for="(getcert, index) in CertificateArray" :key="index">
+                                            <p class="fw-normal text-dark mb-1" style="font-size: 12px; ">{{ getcert.Details}}, </p>
+                                            <p class="fw-light text-secondary mb-1" style="font-size: 12px; ">{{ getcert.Date}}, </p>
                                         </template>
                                     </div>
                                 </div>
@@ -245,19 +279,27 @@ export default {
     data(){
         return{
             PersonalArray: [
-                {Fullname: 'Emily Jackson', Email: 'johndoe@gmail.com', Career: 'Full-Stack Developer', Phone: '0933-412-**** ', Location: '742 Evergreen Terrace, Springfield, IL 62704, USA', Summary: 'Resourceful and detail-oriented Full-Stack Web Developer with hands-on experience in building responsive and user-focused web applications using Laravel, Vue.js, Bootstrap, and Tailwind CSS. Proven ability to manage both front-end and back-end development tasks, from creating dynamic interfaces to designing efficient database structures. Passionate about clean code, usability, and continuous learning. Eager to contribute to a team that values modern web standards and innovation.'}
+                {Fullname: 'Jonathan Doe', Email: 'jonathandoe@gmail.com', Career: 'Full-Stack Developer', Phone: '0933-412-**** ', Location: '742 Evergreen Terrace, Springfield, IL 62704, USA', Summary: 'Experienced creative designer with 20+ years in product design and strategy, user experience and interfaces, and brand development'}
             ],
             EducationArray: [
-                {University: 'Westfield University', Program: 'BS in Information Technology', StartDate: '2025-06-10', EndDate: '2025-06-10'}
+                {University: 'University of California, Los Angeles (UCLA)', Program: 'BS in Information Technology', StartDate: '2025-06-10', EndDate: '2025-06-10'}
             ],
             SkillArray: [
-                {Skill: 'Html'}
+                {Skill: 'Product Strategy'}, {Skill: 'Designing'}, {Skill: 'Information Architechture'}, {Skill: 'Journey Mapping'},  {Skill: 'UX Research'}, {Skill: 'Product Strategy'}, {Skill: 'Designing'},
             ],
             ExperienceArray: [
-                {Company: 'Nexora Tech Solutions', Position: 'Back-end Web Developer', StartDate: '2025-06-10', EndDate: '2025-06-10', Description: 'Developed and maintained server-side applications, optimized database queries, and ensured system reliability for internal tools and enterprise solutions. Collaborated with cross-functional teams to support automation, improve data workflows, and enhance system performance'}
+                {Company: 'Nexora Tech Solutions', Position: 'Web Developer', StartDate: '2025-06-10', EndDate: '2025-06-10', achieve: [{achievements: 'Key Achievements'},{achievements: 'Key Achievements'},{achievements: 'Key Achievements'}], Description: 'Developed and maintained server-side applications, optimized database queries, and ensured system reliability for internal tools and enterprise solutions.'},
+                {Company: 'Nexora Tech Solutions', Position: 'Web Developer', StartDate: '2025-06-10', EndDate: '2025-06-10', achieve: [{achievements: 'Key Achievements'},{achievements: 'Key Achievements'},{achievements: 'Key Achievements'}], Description: 'Developed and maintained server-side applications, optimized database queries, and ensured system reliability for internal tools and enterprise solutions.'},
+                {Company: 'Nexora Tech Solutions', Position: 'Web Developer', StartDate: '2025-06-10', EndDate: '2025-06-10', achieve: [{achievements: 'Key Achievements'},{achievements: 'Key Achievements'},{achievements: 'Key Achievements'}], Description: 'Developed and maintained server-side applications, optimized database queries, and ensured system reliability for internal tools and enterprise solutions.'},
             ],
             LanguageArray: [
-                {Language: 'English'}
+                {Language: 'English'}, {Language: 'Chinese'}, {Language: 'Japanese'}, {Language: 'Filipino'}
+            ],
+            ToolsArray: [
+               {tool: 'InVision'},{tool: 'Web Flow'},{tool: 'Adobe Creative Suite'},{tool: 'Photo Shop'},{tool: 'Notion'},{tool: 'Figma'},{tool: 'VS Code'},{tool: 'Herd'},{tool: 'Table Plus'},
+            ],
+            CertificateArray: [
+                {Details: 'PMP - Project Management Institute', Date: '2025-06-10'},
             ],
 
             PdfPreview: false,
@@ -277,7 +319,12 @@ export default {
         },
         AddExperience(){
             this.ExperienceArray.push({
-                Company: '', Position: '', StartDate: '', EndDate: '', Description: ''
+                Company: '', Position: '', StartDate: '', EndDate: '', Description: '', achieve: [{achievements: 'Key Achievements'}]
+            });
+        },
+        AddExperienceAchieve(index){
+            this.ExperienceArray[index].achieve.push({
+                achievements: ''
             });
         },
         AddLanguage(){
@@ -285,8 +332,21 @@ export default {
                 Language: ''
             });
         },
+        AddTools(){
+            this.ToolsArray.push({
+                tool: ''
+            });
+        },
+        AddCertificate(){
+            this.CertificateArray.push({
+                Details: '', Date: ''
+            });
+        },
         DeleteLanguage(index){
             this.LanguageArray.splice(index, 1);
+        },
+        DeleteTool(index){
+            this.ToolsArray.splice(index, 1);
         },
         DeleteExperience(index){
             this.ExperienceArray.splice(index, 1);
@@ -296,6 +356,12 @@ export default {
         },
         DeleteEducation(index){
             this.EducationArray.splice(index, 1);
+        },
+        DeleteExperienceAchieve(index, indx){
+            this.ExperienceArray[index].achieve.splice(indx, 1);
+        },
+        DeleteCertificate(index){
+            this.CertificateArray.splice(index, 1);
         },
 
         btnshowPreview(){
@@ -350,12 +416,10 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=League+Spartan:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-main{
-    overflow-wrap: break-word;
-}
 section {
     padding: calc(10px + 1rem) 0;
     font-family: "Poppins", sans-serif;
+    overflow-wrap: break-word;
 }
 
 .iframe-css{

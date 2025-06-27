@@ -229,7 +229,7 @@
                                         </div>
                                         <div id="award" class="mt-5">
                                             <div class="py-2 px-2 border-black border-top border-bottom">
-                                                <span class="text-dark fw-semibold"><i class="bi bi-award-fill"></i> CERTIFICATION</span>
+                                                <span class="text-dark fw-semibold"><i class="bi bi-trophy-fill"></i> Award</span>
                                             </div>
                                             <div v-for="(getaward, index) in AwardArray" :key="index" class="">
                                                 <ul class="mt-3">

@@ -31,8 +31,7 @@ class FrontEndController extends Controller
 
     //Action
 
-    public function ChatBox(Request $request)
-    {
+    public function ChatBox(Request $request){
 
         $messages = Session::get('chat_messages', []);
 
@@ -66,7 +65,7 @@ class FrontEndController extends Controller
         return back();
     }
 
-    
+
     //Templates
     public function Template_1(){
         return Inertia::render('Index/Template1',[
@@ -76,6 +75,18 @@ class FrontEndController extends Controller
 
     public function Template_2(){
         return Inertia::render('Index/Template2',[
+            'MessageProps' => Session::get('chat_messages', [])
+        ]);
+    }
+
+    public function Template_3(){
+        return Inertia::render('Index/Template3', [
+            'MessageProps' => Session::get('chat_messages', [])
+        ]);
+    }
+
+    public function Template_4(){
+        return Inertia::render('Index/Template4', [
             'MessageProps' => Session::get('chat_messages', [])
         ]);
     }
