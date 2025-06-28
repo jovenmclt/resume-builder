@@ -90,4 +90,10 @@ class FrontEndController extends Controller
             'MessageProps' => Session::get('chat_messages', [])
         ]);
     }
+
+    public function Template_5(){
+        return Inertia::render('Index/Template5', [
+            'MessageProps' => Session::get('chat_messages', [])
+        ]);
+    }
 }
