@@ -17,3 +17,4 @@ Route::get('/template2', [FrontEndController::class, 'Template_2']);
 Route::get('/template3', [FrontEndController::class, 'Template_3']);
 Route::get('/template4', [FrontEndController::class, 'Template_4']);
 Route::get('/template5', [FrontEndController::class, 'Template_5']);
+Route::get('/template6', [FrontEndController::class, 'Template_6']);

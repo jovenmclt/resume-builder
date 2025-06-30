@@ -71,13 +71,13 @@ import FooterVue from '../Footer/Footer.vue'
 import NavigationVue from '../Navigation/Navigation.vue'
 import {router} from '@inertiajs/vue3'
 
-
 import temp1 from './Assets/Template1.png'
 import temp2 from './Assets/Template2.png'
 import temp3 from './Assets/Template3.png'
 import temp4 from './Assets/Template4.png'
 import temp5 from './Assets/Template5.png'
 import temp6 from './Assets/Template6.png'
+
 export default {
     name: 'ChildTemplates',
     components: { NavigationVue, FooterVue },
@@ -117,6 +117,8 @@ export default {
                     return router.visit('/template4');
                 case '5' :
                     return router.visit('/template5');
+                case '6' :
+                    return router.visit('/template6');
             }
 
         }

@@ -35,12 +35,16 @@ class FrontEndController extends Controller
 
         $messages = Session::get('chat_messages', []);
 
-        $messages[] = ['role' => 'user', 'content' => $request->usermessage];
+        $messages[] = [
+            'role' => 'user',
+            'content' => $request->usermessage
+        ];
+
         try {
 
             $AIresponse = Http::withHeaders([
                 'Content-Type' => 'application/json',
-                'Authorization' => 'Bearer ' . env('OPENROUTER_API_KEY'),
+                'Authorization' => 'Bearer' . env('OPENROUTER_API_KEY'),
             ])->timeout(240)->post('https://openrouter.ai/api/v1/chat/completions', [
                 'model' => 'deepseek/deepseek-r1-0528-qwen3-8b:free',
                 'messages' => $messages,
@@ -48,7 +52,7 @@ class FrontEndController extends Controller
 
             $responseData = $AIresponse->json();
 
-            if( is_array($responseData) && array_key_exists('choices', $responseData) && is_array($responseData['choices']) && count($responseData['choices']) > 0 && isset($responseData['choices'][0]['message']['content'])){
+            if(is_array($responseData) && array_key_exists('choices', $responseData) && is_array($responseData['choices']) && count($responseData['choices']) > 0 && isset($responseData['choices'][0]['message']['content'])){
                 $AIReply = $responseData['choices'][0]['message']['content'];
             }else{
                 $AIReply = 'Sorry, I am having trouble responding right now. Please try again later.';
@@ -58,7 +62,10 @@ class FrontEndController extends Controller
             $AIReply = 'Network issue: Please check your internet connection.';
         }
 
-        $messages[] = ['role' => 'chatbot', 'content' => $AIReply];
+        $messages[] = [
+            'role' => 'chatbot',
+            'content' => $AIReply
+        ];
 
         Session::put('chat_messages', $messages);
 
@@ -93,6 +100,12 @@ class FrontEndController extends Controller
 
     public function Template_5(){
         return Inertia::render('Index/Template5', [
+            'MessageProps' => Session::get('chat_messages', [])
+        ]);
+    }
+
+    public function Template_6(){
+        return Inertia::render('Index/Template6', [
             'MessageProps' => Session::get('chat_messages', [])
         ]);
     }
