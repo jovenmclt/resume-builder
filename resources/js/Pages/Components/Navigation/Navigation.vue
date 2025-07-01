@@ -29,9 +29,9 @@
                         </a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link fw-normal" href="#">
+                        <inertiaLink class="nav-link fw-normal" href="/templates">
                             <button class="btn btn-outline-secondary">Create Resume</button>
-                        </a>
+                        </inertiaLink>
                     </li>
                 </ul>
             </div>
@@ -44,9 +44,9 @@
                         </a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link fw-normal" href="#">
+                        <inertiaLink class="nav-link fw-normal" href="/templates">
                             <button class="btn btn-outline-secondary">Create Resume</button>
-                        </a>
+                        </inertiaLink>
                     </li>
                 </ul>
             </div>

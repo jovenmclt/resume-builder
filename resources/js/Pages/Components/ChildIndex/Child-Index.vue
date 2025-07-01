@@ -10,7 +10,9 @@
                                 <h1 class="fw-semibold display-5">Impress with a professionally designed resume</h1>
                                 <p class="fw-light mt-4">Resume Builder increases your chances of landing a great job by using innovative tools and professional standards — 100% free.</p>
                                 <div class="mt-5">
-                                    <button class="btn btn-primary py-lg-2">Build Resume</button>
+                                    <button class="btn btn-primary py-lg-2">
+                                        <inertiaLink href="/templates" class="text-white text-decoration-none">Build Resume</inertiaLink>
+                                    </button>
                                     <span class="fw-light text-secondary ms-2 " style="font-size: 12px;">No registration required</span>
                                 </div>
                             </div>
@@ -104,13 +106,15 @@
                         </div>
                     </div>
                 </section>
-                <section id="section4" class="">
+                <section id="section4">
                     <div class="row py-3 d-flex align-items-center justify-content-center sec4style">
                         <div class="col-md-7">
                             <div class="text-center">
                                 <h2 class="fw-semibold text-white">Professional Resumes Made Easy Start Your Career Right.</h2>
                                 <br>
-                                <button class="btn btn-primary py-lg-2 mt-3 rounded-0">Create Resume</button>
+                                <button class="btn btn-primary py-lg-2 mt-3 rounded-0">
+                                    <inertiaLink href="/templates" class="text-white text-decoration-none">Create Resume</inertiaLink>
+                                </button>
                                 <p class="fw-light text-white mt-2 mb-0" style="font-size: 12px;">No registration required</p>
                             </div>
                         </div>
@@ -125,9 +129,10 @@
 <script>
 import NavigationVue from '../Navigation/Navigation.vue'
 import Footervue from '../Footer/Footer.vue';
+import {Link as inertiaLink} from '@inertiajs/vue3'
 export default {
     name: 'Child-Index',
-    components: {NavigationVue, Footervue},
+    components: {NavigationVue, Footervue, inertiaLink},
     data(){
         return{
             isDarkMode: localStorage.getItem('theme') === 'dark',

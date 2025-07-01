@@ -24,16 +24,16 @@
                             <div class="text-start border py-4 px-3 rounded shadow-sm" style="min-height: 840px;">
                                 <ul class="nav nav-tabs">
                                     <li class="nav-item">
-                                        <a style="font-size: 15px;" class="nav-link active" data-bs-toggle="tab" href="#PersonalInfo"><i class="bi bi-person-fill"></i> Personal</a>
+                                        <a style="font-size: 15px;" class="nav-link active text-secondary" data-bs-toggle="tab" href="#PersonalInfo"><i class="bi bi-person-fill"></i> Personal</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a style="font-size: 15px;" class="nav-link" data-bs-toggle="tab" href="#Education"><i class="bi bi-mortarboard-fill"></i> Education</a>
+                                        <a style="font-size: 15px;" class="nav-link text-secondary" data-bs-toggle="tab" href="#Education"><i class="bi bi-mortarboard-fill"></i> Education</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a style="font-size: 15px;" class="nav-link" data-bs-toggle="tab" href="#Skills"><i class="bi bi-layers-fill"></i> Skills</a>
+                                        <a style="font-size: 15px;" class="nav-link text-secondary" data-bs-toggle="tab" href="#Skills"><i class="bi bi-layers-fill"></i> Skills</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a style="font-size: 15px;" class="nav-link"  data-bs-toggle="tab" href="#Experience"><i class="bi bi-briefcase-fill"></i> Experience</a>
+                                        <a style="font-size: 15px;" class="nav-link text-secondary"  data-bs-toggle="tab" href="#Experience"><i class="bi bi-briefcase-fill"></i> Experience</a>
                                     </li>
                                 </ul>
                                 <div class="tab-content">
@@ -143,7 +143,7 @@
                             </div>
                         </div>
                         <div class="col-lg-7 mt-lg-0 mt-4" >
-                            <div id="TemplatePdf" class="border bg-white shadow-sm rounded" style="min-height: 840px;" >
+                            <div id="TemplatePdf" class="border bg-white shadow-sm rounded position-sticky top-0" style="min-height: 840px;" >
                                 <div id="personal" class="text-center py-3 px-4" style="background-color: #F6F6F6;">
                                     <template v-for="(getinfo, index) in PersonalArray" :key="index">
                                         <img v-if="getinfo.Profile" :src="getinfo.Profile" alt="" width="80" height="80" style="border-radius: 100%;" >
@@ -362,5 +362,11 @@ section {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+
+.nav-link.active{
+    color: rgb(241, 246, 246) !important;
+    background-color: rgb(104, 106, 107) !important;
 }
 </style>

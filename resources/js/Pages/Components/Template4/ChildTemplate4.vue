@@ -236,7 +236,7 @@
                             </div>
                         </div>
                         <div class="col-lg-7 mt-lg-0 mt-4" >
-                            <div id="TemplatePdf" class="py-4 px-3 border bg-white shadow-sm rounded" style="min-height: 840px;" >
+                            <div id="TemplatePdf" class="py-4 px-3 border bg-white shadow-sm rounded position-sticky top-0" style="min-height: 840px;" >
                                 <div class="d-flex justify-content-between">
                                     <div class="text-start" style="width: 60%;">
                                         <template v-for="(getinfo, index) in PersonalArray" :key="index">
