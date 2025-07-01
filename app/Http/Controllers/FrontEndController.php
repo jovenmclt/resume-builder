@@ -44,14 +44,14 @@ class FrontEndController extends Controller
 
             $AIresponse = Http::withHeaders([
                 'Content-Type' => 'application/json',
-                'Authorization' => 'Bearer' . env('OPENROUTER_API_KEY'),
+                'Authorization' => 'Bearer ' . env('OPENROUTER_API_KEY'),
             ])->timeout(240)->post('https://openrouter.ai/api/v1/chat/completions', [
                 'model' => 'deepseek/deepseek-r1-0528-qwen3-8b:free',
                 'messages' => $messages,
             ]);
 
             $responseData = $AIresponse->json();
-
+           
             if(is_array($responseData) && array_key_exists('choices', $responseData) && is_array($responseData['choices']) && count($responseData['choices']) > 0 && isset($responseData['choices'][0]['message']['content'])){
                 $AIReply = $responseData['choices'][0]['message']['content'];
             }else{

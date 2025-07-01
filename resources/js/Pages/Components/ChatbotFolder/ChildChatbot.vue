@@ -13,13 +13,13 @@
             <div ref="messageContainer" v-if="MessageProps.length > 0" class="mt-2" style="max-height: 280px; overflow-y: auto; scrollbar-width: none;" >
                 <div v-for="(getmessage, index) in MessageProps" :key="index">
                     <div v-if="getmessage.role == 'user' " class="d-flex justify-content-end">
-                        <p class="fw-light py-2 px-2 me-2 rounded-4 text-start text-dark" style="font-size: 12px; max-width: 75%; background-color: #F2F2F2;">{{ getmessage.content }}</p>
+                        <p class="fw-normal py-2 px-2 me-2 rounded-4 text-start text-dark" style="font-size: 12px; max-width: 75%; background-color: #F2F2F2;">{{ getmessage.content }}</p>
                     </div>
                     <div v-if="getmessage.role == 'chatbot' " class="d-flex justify-content-start">
                         <div class="d-flex align-items-end mb-4 ms-2">
                             <img width="25" height="25" src="./assets/gpt robot chatbot.png" class=""/>
                         </div>
-                        <p class="fw-light py-2 px-2 d-inline-block rounded-4 text-start text-white bg-primary" style="font-size: 12px; max-width: 65%;" v-html="getmessage.content.replace(/[#>*_`]/g, '').replace(/-{3,}/g, '').replace(/(\r\n|\n|\r)/g, '<br>')"></p>
+                        <p class="fw-normal py-2 px-2 d-inline-block rounded-4 text-start text-white bg-primary" style="font-size: 12px; max-width: 65%;" v-html="getmessage.content.replace(/[#>*_`]/g, '').replace(/-{3,}/g, '').replace(/(\r\n|\n|\r)/g, '<br>')"></p>
                     </div>
                 </div>
             </div>
