@@ -48,6 +48,9 @@
                                         <div class="text-start">
                                             <h5 class="fw-semibold">Personal Information</h5>
                                             <form v-for="(InputInfo, index) in PersonalArray" :key="index" class="py-3">
+                                                <label  for="profile" class="form-label">Profle</label>
+                                                <input  @change="UploadingProfile" id="profile" type="file" class="form-control shadow-none" accept="image/*">
+                                                <br>
                                                 <label for="Fullname" class="form-label">Full Name</label>
                                                 <input v-model="InputInfo.Fullname" id="Fullname" type="text" class="form-control shadow-none">
                                                 <br>
@@ -162,11 +165,6 @@
                                                 <i @click="DeleteLanguage(index)" v-if="index > 0" class="bi bi-x-circle-fill text-danger me-1 mt-1" style="cursor: pointer;"></i>
                                                 <label for="skill" class="form-label">Language Skills </label>
                                                 <input v-model="InputLanguage.language" id="skill" type="text" class="form-control shadow-none">
-                                                <div class="text-start mt-2">
-                                                    <span class="fw-normal pe-2"> <input @click="AddLanguageProgress(index, '25')" id="beginner" type="radio" name="progress"> Beginner</span>
-                                                    <span class="fw-normal px-2"> <input @click="AddLanguageProgress(index, '50')" id="Advanced" type="radio" name="progress" value="50"> Advanced</span>
-                                                    <span class="fw-normal px-2"> <input @click="AddLanguageProgress(index, '100')" id="professional" type="radio" name="progress" value="100"> Professional</span>
-                                                </div>
                                             </form>
                                             <button @click="AddLanguage" class="btn btn-secondary"><i class="bi bi-plus-lg"></i> Add Language</button>
                                         </div>
@@ -175,50 +173,43 @@
                             </div>
                         </div>
                         <div class="col-lg-7 mt-lg-0 mt-4" >
-                            <div id="TemplatePdf" class="border py-4 px-3 bg-white shadow-sm rounded position-sticky top-0" style="min-height: 840px;" >
-                                <div class="text-start border-bottom pb-3">
-                                    <template v-for="(getinfo, index) in PersonalArray" :key="index">
-                                        <h2 class="fw-semibold text-dark mb-1 mt-3">{{ getinfo.Fullname }}</h2>
-                                        <p class="fw-normal text-secondary mb-1" style="font-size: 12px;">{{ getinfo.Career }}</p>
-                                    </template>
-                                </div>
-                                <div class="d-flex justify-content-between gap-2">
-                                    <div class="text-start py-3" style="width: 30%;">
-                                        <h5 class="fw-semibold text-dark mt-3">CONTACT</h5>
+                            <div id="TemplatePdf" class="border bg-white shadow-sm rounded position-sticky top-0" style="min-height: 840px;" >
+                                <div class="d-flex justify-content-between">
+                                    <div class="py-4 px-3" style="width: 30%; background-color: #145349; min-height: 840px;">
+                                        <div class="text-center">
+                                            <template v-for="(getinfo, index) in PersonalArray" :key="index">
+                                                <img v-if="getinfo.Profile" :src="getinfo.Profile" alt="" width="80" height="80" style="border-radius: 100%;" >
+                                                <img v-else src="./assets/Photo.png" alt="" width="80" height="80" style="border-radius: 100%;" >
+                                                <h5 class="fw-semibold text-white mb-1 mt-3">{{ getinfo.Fullname }}</h5>
+                                                <p class="fw-light text-white mb-1">{{ getinfo.Career }}</p>
+                                            </template>
+                                        </div>
+                                        <h5 class="fw-semibold text-white mt-5">CONTACT</h5>
                                         <template v-for="(getinfo, index) in PersonalArray" :key="index">
-                                            <p class="fw-semibold text-dark mb-1" style="font-size: 12px;">Address</p>
-                                            <p class="fw-normal text-dark" style="font-size: 12px;">{{ getinfo.Location }}</p>
-                                            <p class="fw-semibold text-dark mb-1" style="font-size: 12px;">Phone</p>
-                                            <p class="fw-normal text-dark" style="font-size: 12px;">{{ getinfo.Phone }}</p>
-                                            <p class="fw-semibold text-dark mb-1" style="font-size: 12px;">Email</p>
-                                            <p class="fw-normal text-dark" style="font-size: 12px;">{{ getinfo.Email }}</p>
+                                            <p class="fw-semibold text-white mb-1" style="font-size: 12px;">Address</p>
+                                            <p class="fw-light text-white" style="font-size: 12px;">{{ getinfo.Location }}</p>
+                                            <p class="fw-semibold text-white mb-1" style="font-size: 12px;">Phone</p>
+                                            <p class="fw-light text-white" style="font-size: 12px;">{{ getinfo.Phone }}</p>
+                                            <p class="fw-semibold text-white mb-1" style="font-size: 12px;">Email</p>
+                                            <p class="fw-light text-white" style="font-size: 12px;">{{ getinfo.Email }}</p>
                                         </template>
-                                        <h5 class="fw-semibold text-dark mt-4">LINKS</h5>
+                                        <h5 class="fw-semibold text-white mt-5">LINKS</h5>
                                         <template v-for="(getlink, index) in LinkArray" :key="index">
-                                            <p class="fw-normal text-dark" style="font-size: 12px;">{{ getlink.Link }}</p>
+                                            <p class="fw-light text-white" style="font-size: 12px;">{{ getlink.Link }}</p>
                                         </template>
-                                        <h5 class="fw-semibold text-dark mt-4">SKILLS</h5>
+                                        <h5 class="fw-semibold text-white mt-5">SKILLS</h5>
                                         <template v-for="(getskills, index) in SkillArray" :key="index">
                                             <div class="d-flex justify-content-between mt-3">
-                                                <p class="fw-normal text-dark mb-1" style="font-size: 12px; ">{{ getskills.Skill }}</p>
+                                                <p class="fw-normal text-white mb-1" style="font-size: 12px; ">{{ getskills.Skill }}</p>
                                                 <p class="fw-normal text-secondary mb-1" style="font-size: 12px; ">{{ getskills.progress }}%</p>
                                             </div>
                                             <div class="progress" style="height: 7px;">
                                                 <div class="progress-bar " role="progressbar" aria-label="Basic example" :style="{ width: getskills.progress + '%'} "></div>
                                             </div>
                                         </template>
-                                        <h5 class="fw-semibold text-dark mt-4">LANGUAGE</h5>
-                                        <template v-for="(getlanguage, index) in LanguageArray" :key="index">
-                                            <div class="d-flex justify-content-between mt-3">
-                                                <p class="fw-normal text-dark mb-1" style="font-size: 12px; ">{{ getlanguage.language }}</p>
-                                            </div>
-                                            <div class="progress" style="height: 7px;">
-                                                <div class="progress-bar " role="progressbar" aria-label="Basic example" :style="{ width: getlanguage.progress + '%'} "></div>
-                                            </div>
-                                        </template>
                                     </div>
-                                    <div class="text-start py-3" style="width: 65%;">
-                                        <h5 class="fw-semibold text-dark mt-3">SUMMARY</h5>
+                                    <div class="text-start py-1 px-3" style="width: 70%;">
+                                         <h5 class="fw-semibold text-dark mt-3">SUMMARY</h5>
                                         <template v-for="(getinfo, index) in PersonalArray" :key="index">
                                             <p class="fw-normal text-dark" style="font-size: 12px;">{{ getinfo.Summary }}</p>
                                         </template>
@@ -234,6 +225,10 @@
                                             <p class="fw-semibold text-dark mb-1" style="font-size: 12px;">{{ getedu.University }}</p>
                                             <p class="fw-normal text-dark mb-1" style="font-size: 12px;">{{ getedu.Program }}, {{ getedu.StartDate }} - {{ getedu.EndDate }}</p>
                                         </template>
+                                        <h5 class="fw-semibold text-dark mt-4">LANGUAGE</h5>
+                                        <template v-for="(getlanguage, index) in LanguageArray" :key="index">
+                                            <p class="fw-normal text-dark mb-1" style="font-size: 12px; ">{{ getlanguage.language }}</p>
+                                        </template>
                                     </div>
                                 </div>
                             </div>
@@ -247,17 +242,17 @@
 </template>
 
 <script>
-import { Link as inertiaLink} from '@inertiajs/vue3';
+import { Link as inertiaLink } from '@inertiajs/vue3';
 import ChatBotVue from '../../Index/ChatBot.vue';
 import html2pdf from 'html2pdf.js'
 export default {
-    name: 'ChildTemplate7',
+    name: 'ChildTemplate8',
     components: {ChatBotVue},
     props: {MessageProps:Array},
     data(){
         return{
             PersonalArray: [
-                {Fullname: 'Rick Tang', Email: 'ricktang@gmail.com', Career: 'Product Designer', Phone: '0933-412-**** ', Location: 'San Francisco, California', Summary: 'UX/UI specialist focused on designing clean and functional projects across all platforms and devices in response to specific briefs and problems, while always maintaining a unique look and feel.'}
+                {Profile: '' , Fullname: 'Rick Tang', Email: 'ricktang@gmail.com', Career: 'Product Designer', Phone: '0933-412-**** ', Location: 'San Francisco, California', Summary: 'UX/UI specialist focused on designing clean and functional projects across all platforms and devices in response to specific briefs and problems, while always maintaining a unique look and feel.'}
             ],
             EducationArray: [
                 {University: 'Rhode Island School of Design', Program: 'BFA Industrial Design', StartDate: '2025-06-10', EndDate: '2025-06-10'},
@@ -276,9 +271,9 @@ export default {
                 {Link: 'https://github.com/jovenmclt?tab=overview&from=2025-07-01&to=2025-07-02'}
             ],
             LanguageArray: [
-                {language: 'English', progress: '50'},
-                {language: 'Italian', progress: '100'},
-                {language: 'Filipino', progress: '25'},
+                {language: 'English',},
+                {language: 'Italian',},
+                {language: 'Filipino'},
             ],
 
             PdfPreview: false,
@@ -304,7 +299,7 @@ export default {
         },
         AddLanguage(){
             this.LanguageArray.push({
-                language: '', progress: ''
+                language: ''
             });
         },
         AddLink(){
@@ -314,9 +309,6 @@ export default {
         },
         AddSkillProgress(index, value){
             this.SkillArray[index].progress = value
-        },
-        AddLanguageProgress(index, value){
-            this.LanguageArray[index].progress = value
         },
         AddExperience(){
             this.ExperienceArray.push({

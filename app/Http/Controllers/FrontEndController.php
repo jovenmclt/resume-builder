@@ -115,4 +115,10 @@ class FrontEndController extends Controller
             'MessageProps' => Session::get('chat_messages', [])
         ]);
     }
+
+    public function Template_8(){
+        return Inertia::render('Index/Template8', [
+            'MessageProps' => Session::get('chat_messages', [])
+        ]);
+    }
 }

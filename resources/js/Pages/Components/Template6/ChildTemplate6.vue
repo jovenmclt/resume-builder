@@ -147,7 +147,7 @@
                                 <div id="personal" class="text-center py-3 px-4" style="background-color: #F6F6F6;">
                                     <template v-for="(getinfo, index) in PersonalArray" :key="index">
                                         <img v-if="getinfo.Profile" :src="getinfo.Profile" alt="" width="80" height="80" style="border-radius: 100%;" >
-                                        <img src="./assets/Photo.png" alt="" width="80" height="80" style="border-radius: 100%;" >
+                                        <img v-else src="./assets/Photo.png" alt="" width="80" height="80" style="border-radius: 100%;" >
                                         <h5 class="fw-semibold text-dark mb-1 mt-3">{{ getinfo.Fullname }}</h5>
                                         <p class="fw-normal text-secondary mb-1">{{ getinfo.Career }}</p>
                                     </template>
