@@ -51,7 +51,7 @@ class FrontEndController extends Controller
             ]);
 
             $responseData = $AIresponse->json();
-           
+
             if(is_array($responseData) && array_key_exists('choices', $responseData) && is_array($responseData['choices']) && count($responseData['choices']) > 0 && isset($responseData['choices'][0]['message']['content'])){
                 $AIReply = $responseData['choices'][0]['message']['content'];
             }else{
@@ -106,6 +106,12 @@ class FrontEndController extends Controller
 
     public function Template_6(){
         return Inertia::render('Index/Template6', [
+            'MessageProps' => Session::get('chat_messages', [])
+        ]);
+    }
+
+    public function Template_7(){
+        return Inertia::render('Index/Template7', [
             'MessageProps' => Session::get('chat_messages', [])
         ]);
     }

@@ -29,6 +29,15 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="carousel-item ">
+                                        <div class="row justify-content-center">
+                                            <div v-for="(getTemp, index) in Templates_Container3" :key="index" class="col-3">
+                                                <a href="#" @click="TempRoute(getTemp.id)" class="shadow-none btn-outline-none">
+                                                    <img :src="getTemp.srcs" class="d-block w-100 border border-dark rounded" alt="...">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <button class="btn carousel-control-prev" data-bs-target="#CarouselTemplate" data-bs-slide="prev">
                                     <img  class="w-25" src="https://img.icons8.com/fluency/48/back.png" alt="back"/>
@@ -77,7 +86,9 @@ import temp3 from './Assets/Template3.png'
 import temp4 from './Assets/Template4.png'
 import temp5 from './Assets/Template5.png'
 import temp6 from './Assets/Template6.png'
-
+import temp7 from './Assets/Template7.png'
+import temp8 from './Assets/Template8.png'
+import temp9 from './Assets/Template9.png'
 export default {
     name: 'ChildTemplates',
     components: { NavigationVue, FooterVue },
@@ -90,6 +101,9 @@ export default {
                 {srcs: temp4, id: '4'},
                 {srcs: temp5, id: '5'},
                 {srcs: temp6, id: '6'},
+                {srcs: temp7, id: '7'},
+                {srcs: temp8, id: '8'},
+                {srcs: temp9, id: '9'},
             ],
             Templates_Container1: [
                 {srcs: temp1, id: '1'},
@@ -100,6 +114,11 @@ export default {
                 {srcs: temp4, id: '4'},
                 {srcs: temp5, id: '5'},
                 {srcs: temp6, id: '6'},
+            ],
+            Templates_Container3: [
+                {srcs: temp7, id: '7'},
+                {srcs: temp8, id: '8'},
+                {srcs: temp9, id: '9'},
             ]
         }
     },
@@ -119,6 +138,8 @@ export default {
                     return router.visit('/template5');
                 case '6' :
                     return router.visit('/template6');
+                case '7' :
+                    return router.visit('/template7');
             }
 
         }
