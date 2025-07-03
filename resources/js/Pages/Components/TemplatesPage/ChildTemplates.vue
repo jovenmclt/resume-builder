@@ -142,6 +142,8 @@ export default {
                     return router.visit('/template7');
                 case '8' :
                     return router.visit('/template8');
+                case '9' :
+                    return router.visit('/template9');
             }
 
         }
