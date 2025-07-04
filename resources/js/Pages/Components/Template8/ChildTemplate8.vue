@@ -10,12 +10,13 @@
                                 <p class="fw-light mb-0">Build your resume, showcase your potential fast, simple, and professional.</p>
                             </div>
                             <div class="text-start mt-md-4 mt-2">
-                                <button @click="btnshowPreview" style="background-color: #333446;" class="btn text-white rounded-5"><img width="25" height="25" src="./assets/pdf file.png" alt=""> <span class="pe-2" style="font-size: 13px;">Generate PDF</span></button>
+                                <button @click="btnshowPreview" style="background-color: #333446;" class="btn text-white rounded-5 d-md-block d-none"><img width="25" height="25" src="./assets/pdf file.png" alt=""> <span class="pe-2" style="font-size: 13px;">Generate PDF</span></button>
+                                <button @click="btnDownload" style="background-color: #333446;" class="btn text-white rounded-5 d-md-none d-block"><img width="25" height="25" src="./assets/pdf file.png" alt=""> <span class="pe-2" style="font-size: 13px;">Generate PDF</span></button>
                                 <div v-if="PdfPreview" class="iframe-css z-1 d-flex flex-column">
                                     <iframe id="pdf-preview" class="w-75 h-75 py-3 px-3 bg-white"></iframe>
                                     <div class="text-start w-75">
                                         <button @click="btnClosePreview" class="btn btn-secondary w-50 rounded-0"><i class="bi bi-x-lg"></i> Close Preview</button>
-                                        <button @click="btnDownloadPDF" class="btn btn-dark w-50 rounded-0"><i class="bi bi-file-earmark-pdf-fill"></i> Download PDF</button>
+                                        <button @click="btnDowloadPreview" class="btn btn-dark w-50 rounded-0"><i class="bi bi-file-earmark-pdf-fill"></i> Download PDF</button>
                                     </div>
                                 </div>
                             </div>
@@ -278,7 +279,7 @@ export default {
                 {language: 'Filipino'},
             ],
 
-            
+
             progressLevels: [
                 { label: "Beginner", value: 25 },
                 { label: "Advanced", value: 50 },
@@ -346,7 +347,7 @@ export default {
             this.pdfUrl = null
             document.getElementById('TemplatePdf').classList.add('border');
         },
-        btnDownloadPDF(){
+        btnDowloadPreview(){
             const a = document.createElement("a");
             a.href = this.pdfUrl;
             a.download = "Resumebuilder.pdf";
@@ -355,6 +356,21 @@ export default {
             document.body.removeChild(a);
 
             this.btnClosePreview();
+        },
+
+        //mobile view
+        btnDownload(){
+            const element = document.getElementById('TemplatePdf');
+            html2pdf()
+                .set({
+                    margin: 10,
+                    filename: 'Resumebuilder.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 7, backgroundColor: '#ffffff' },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                })
+                .from(element)
+                .save();
         }
     },
     watch:{
