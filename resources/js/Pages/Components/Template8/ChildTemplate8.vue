@@ -107,9 +107,11 @@
                                                 <label for="skill" class="form-label">Technical Skills </label>
                                                 <input v-model="InputSkill.Skill" id="skill" type="text" class="form-control shadow-none">
                                                 <div class="text-start mt-2">
-                                                    <span class="fw-normal pe-2"> <input @click="AddSkillProgress(index, '25')" id="beginner" type="radio" name="progress"> Beginner</span>
-                                                    <span class="fw-normal px-2"> <input @click="AddSkillProgress(index, '50')" id="Advanced" type="radio" name="progress" value="50"> Advanced</span>
-                                                    <span class="fw-normal px-2"> <input @click="AddSkillProgress(index, '100')" id="professional" type="radio" name="progress" value="100"> Professional</span>
+                                                    <template v-for="(level, levelIndex) in progressLevels" :key="levelIndex">
+                                                        <span class="fw-normal pe-2">
+                                                            <input type="radio" :name="'progress-' + index" :value="level.value" v-model="InputSkill.progress" :id="level.label.toLowerCase()" > {{ level.label }}
+                                                        </span>
+                                                    </template>
                                                 </div>
                                             </form>
                                             <button @click="AddSkill" class="btn btn-secondary"><i class="bi bi-plus-lg"></i> Add Skill</button>
@@ -276,6 +278,14 @@ export default {
                 {language: 'Filipino'},
             ],
 
+            
+            progressLevels: [
+                { label: "Beginner", value: 25 },
+                { label: "Advanced", value: 50 },
+                { label: "Professional", value: 100 },
+            ],
+
+
             PdfPreview: false,
             pdfUrl: null,
         }
@@ -306,9 +316,6 @@ export default {
             this.LinkArray.push({
                 Link: ''
             });
-        },
-        AddSkillProgress(index, value){
-            this.SkillArray[index].progress = value
         },
         AddExperience(){
             this.ExperienceArray.push({

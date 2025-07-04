@@ -254,8 +254,8 @@
                                             <span class="fw-bold text-dark" style="font-size: 14px; ">RECOGNITIONS/CERTIFICATES</span>
                                         </div>
                                         <template v-for="(getcert, index) in CertificateArray" :key="index">
-                                            <p class="fw-normal text-dark mb-1" style="font-size: 12px; ">{{ getcert.Details}}, </p>
-                                            <p class="fw-light text-secondary mb-1" style="font-size: 12px; ">{{ getcert.Date}}, </p>
+                                            <p class="fw-normal text-dark mb-1" style="font-size: 12px; ">{{ getcert.Details}}</p>
+                                            <p class="fw-light text-secondary mb-1" style="font-size: 12px; ">{{ getcert.Date}}</p>
                                         </template>
                                     </div>
                                 </div>

@@ -241,6 +241,7 @@
                                     <div class="text-start" style="width: 60%;">
                                         <template v-for="(getinfo, index) in PersonalArray" :key="index">
                                             <h2 class="fw-normal text-info mt-3">{{ getinfo.Fullname }}</h2>
+                                            <p class="fw-normal text-dark mb-1" style="font-size: 12px;">{{ getinfo.Career }}</p>
                                         </template>
                                     </div>
                                     <div class="text-start" style="width: 30%;">
