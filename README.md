@@ -15,6 +15,5 @@ The Resume Builder helps users design and generate professional resumes efficien
 
 ## Technologies Used
 - Frontend: Vue.js 3, Bootstrap 5, Inertia.js  
-- Backend: Laravel 11  
-- Database: MySQL  
+- Backend: Laravel 11 
 - Other Tools: Composer, NPM 
