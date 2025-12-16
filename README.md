@@ -14,6 +14,6 @@ The Resume Builder helps users design and generate professional resumes efficien
 - AI chat support
 
 ## Technologies Used
-- Vuejs 3, Bootstrap 5, Inertia.js  
-- Laravel 11 
-- Composer, NPM 
+- Frontend: Vuejs 3, Bootstrap 5, Inertia.js  
+- Backend: Laravel 11 Session
+- Other Tools: Composer, NPM 
